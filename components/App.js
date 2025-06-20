@@ -935,7 +935,7 @@ export const App = () => {
             />
             <header className="app-header">
                 <img src="logo-placeholder.png" alt="MRC Global Logo" className="company-logo" />
-                <h1>MRC Global QMS v0.1</h1>
+                <h1>MGXQMS v0.1</h1>
                 <div className="header-controls">
                     <${ProfileDropdown} currentProfile=${currentProfile} onProfileChange=${setCurrentProfile} />
                     <button

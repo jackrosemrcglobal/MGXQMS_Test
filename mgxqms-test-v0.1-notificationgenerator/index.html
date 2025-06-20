@@ -261,11 +261,24 @@ Regards,
       </div>
     </div>
     
+    <script type="importmap">
+        {
+            "imports": {
+                "papaparse": "https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js",
+                "jszip": "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js",
+                "html2canvas": "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js",
+                "jspdf": "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js",
+                "./modules/ui.js": "./modules/ui.js",
+                "./modules/letter.js": "./modules/letter.js",
+                "./modules/exporter.js": "./modules/exporter.js"
+            }
+        }
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
     
     <script type="text/javascript">
         function googleTranslateElementInit() {

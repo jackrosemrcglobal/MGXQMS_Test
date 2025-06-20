@@ -319,8 +319,9 @@ const AUDIT_MODULES = {
         category: "audits",
         description: "Link to an external tool for creating and viewing audit presentations.",
         initialData: {
-            url: 'https://www.example.com/audit-presentation-tool',
-            description: 'Link to a simulated external Audit Presentation tool. This could be a specialized software or an online tool.'
+            url: 'https://jackrosemrcglobal/mgxqms-test/mgxqms-test-working/mgxqms-test-v0.1-auditpresentation/index.html',
+
+            description: 'MRC Global Audit Presentation Tool.'
         }
     }
 };

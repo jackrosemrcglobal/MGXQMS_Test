@@ -1,0 +1,292 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISO 9001:2015 Management Review</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "./modules/": "./modules/"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="container my-5">
+        <header class="text-center mb-5">
+            <img src="logo.png" alt="Company Logo" class="logo mb-3">
+            <h1>Management Review</h1>
+            <p class="lead">As per ISO 9001:2015 Quality Management System</p>
+        </header>
+
+        <div class="card mb-4" id="meeting-details">
+            <div class="card-header">
+                <h3>Meeting Details</h3>
+            </div>
+            <div class="card-body">
+                <form id="details-form">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="review-date" class="form-label">Review Date</label>
+                            <input type="date" class="form-control" id="review-date" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="review-location" class="form-label">Location / Platform</label>
+                            <input type="text" class="form-control" id="review-location" placeholder="e.g., Boardroom / MS Teams">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="attendees" class="form-label">Attendees</label>
+                        <textarea class="form-control" id="attendees" rows="3" placeholder="List all attendees, one per line"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card mb-4" id="pest-analysis-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3>PEST Analysis</h3>
+                <button class="btn btn-success btn-sm" id="export-pest-btn">Export to Excel</button>
+            </div>
+            <div class="card-body">
+                <p class="card-text text-muted small">Analyze Political, Economic, Social, and Technological factors that could impact your organization.</p>
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 mb-3">
+                        <div class="pest-item">
+                            <h5 class="pest-title political">Political</h5>
+                            <textarea id="pest-political" class="form-control" rows="8" placeholder="e.g., Government policies, trade restrictions, political stability..."></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-3">
+                        <div class="pest-item">
+                            <h5 class="pest-title economic">Economic</h5>
+                            <textarea id="pest-economic" class="form-control" rows="8" placeholder="e.g., Economic growth, inflation rates, exchange rates..."></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-3">
+                         <div class="pest-item">
+                            <h5 class="pest-title social">Social</h5>
+                            <textarea id="pest-social" class="form-control" rows="8" placeholder="e.g., Cultural trends, demographics, consumer behavior..."></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 mb-3">
+                         <div class="pest-item">
+                            <h5 class="pest-title technological">Technological</h5>
+                            <textarea id="pest-technological" class="form-control" rows="8" placeholder="e.g., New technologies, automation, R&D activity..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4" id="swot-analysis-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3>SWOT Analysis</h3>
+                <button class="btn btn-success btn-sm" id="export-swot-btn">Export to Excel</button>
+            </div>
+            <div class="card-body">
+                 <p class="card-text text-muted small">Identify internal Strengths & Weaknesses and external Opportunities & Threats.</p>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="swot-item">
+                            <h5 class="swot-title strengths">Strengths</h5>
+                            <p class="swot-subtitle">Internal / Positive</p>
+                            <textarea id="swot-strengths" class="form-control" rows="6" placeholder="e.g., Strong brand, skilled workforce, unique technology..."></textarea>
+                        </div>
+                    </div>
+                     <div class="col-md-6 mb-3">
+                        <div class="swot-item">
+                            <h5 class="swot-title weaknesses">Weaknesses</h5>
+                            <p class="swot-subtitle">Internal / Negative</p>
+                            <textarea id="swot-weaknesses" class="form-control" rows="6" placeholder="e.g., High debt, weak supply chain, outdated tech..."></textarea>
+                        </div>
+                    </div>
+                     <div class="col-md-6 mb-3">
+                        <div class="swot-item">
+                            <h5 class="swot-title opportunities">Opportunities</h5>
+                            <p class="swot-subtitle">External / Positive</p>
+                            <textarea id="swot-opportunities" class="form-control" rows="6" placeholder="e.g., New markets, favorable regulations, tech advancements..."></textarea>
+                        </div>
+                    </div>
+                     <div class="col-md-6 mb-3">
+                        <div class="swot-item">
+                            <h5 class="swot-title threats">Threats</h5>
+                            <p class="swot-subtitle">External / Negative</p>
+                            <textarea id="swot-threats" class="form-control" rows="6" placeholder="e.g., New competitors, economic downturn, changing customer needs..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4" id="issues-register-card">
+            <div class="card-header">
+                <h3>External & Internal Issues Register</h3>
+            </div>
+            <div class="card-body">
+                <div id="issues-register-header" class="d-none d-lg-grid">
+                    <span>Issue Description</span>
+                    <span>Type</span>
+                    <span>Interested Party</span>
+                    <span>Date Identified</span>
+                    <span>Risk / Opp.</span>
+                    <span>Actions Taken</span>
+                    <span>Owner</span>
+                    <span>Status</span>
+                    <span></span> <!-- for delete button -->
+                </div>
+                <div id="issues-container">
+                    <p id="issues-placeholder" class="text-muted">No issues added yet. Click "+ Add Issue" to start building your register.</p>
+                </div>
+                <div class="mt-3 action-buttons">
+                    <button class="btn btn-outline-secondary btn-sm" id="add-issue-btn">+ Add Issue</button>
+                    <button class="btn btn-success btn-sm float-end" id="export-issues-btn">Export to Excel</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4 d-print-none" id="summary-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3>Action Item Summary</h3>
+                <span class="badge bg-primary rounded-pill" id="action-item-count">0</span>
+            </div>
+            <div class="card-body">
+                <p id="summary-placeholder" class="text-muted">No action items added yet. They will appear here for easy tracking.</p>
+                <div id="action-item-summary-container"></div>
+            </div>
+        </div>
+
+        <h2 class="mb-3">Agenda & Minutes</h2>
+        <div class="accordion" id="management-review-agenda">
+            <!-- Agenda items will be injected here by JavaScript -->
+        </div>
+
+        <div class="mt-5 text-center action-buttons d-print-none">
+            <button class="btn btn-secondary me-2" id="save-progress">Save Progress</button>
+            <button class="btn btn-primary" id="finalize-print">Finalize & Print/Export</button>
+            <button class="btn btn-success me-2" id="export-ppt">Export to PowerPoint</button>
+            <button class="btn btn-info me-2" id="export-json">Export to JSON</button>
+            <input type="file" id="import-json-file" accept=".json" style="display: none;">
+            <button class="btn btn-warning me-2" id="import-json">Import from JSON</button>
+            <button class="btn btn-outline-info me-2" id="release-notes-btn">📋 Release Notes</button>
+            <button class="btn btn-danger ms-2" id="clear-data">Clear All Data</button>
+        </div>
+         <footer class="text-center mt-5 text-muted d-print-none">
+            <p><small>Powered by Collaborative AI</small></p>
+        </footer>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <!-- Release Notes Modal -->
+    <div class="modal fade" id="releaseNotesModal" tabindex="-1" aria-labelledby="releaseNotesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="releaseNotesModalLabel">📋 ISO 9001:2015 Management Review - Features & Functionality</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-4">
+                        <h6 class="text-primary">🎯 Core Features</h6>
+                        <ul class="list-unstyled ms-3">
+                            <li class="mb-2">✅ <strong>Complete ISO 9001:2015 Coverage</strong> - All 14 required management review agenda items</li>
+                            <li class="mb-2">✅ <strong>Meeting Details Capture</strong> - Date, location, attendees tracking</li>
+                            <li class="mb-2">✅ <strong>Real-time Auto-save</strong> - Progress automatically saved to browser storage</li>
+                            <li class="mb-2">✅ <strong>Responsive Design</strong> - Works seamlessly on desktop, tablet, and mobile</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="text-success">📊 Strategic Analysis Tools</h6>
+                        <ul class="list-unstyled ms-3">
+                            <li class="mb-2">✅ <strong>PEST Analysis</strong> - Political, Economic, Social, Technological factors</li>
+                            <li class="mb-2">✅ <strong>SWOT Analysis</strong> - Strengths, Weaknesses, Opportunities, Threats</li>
+                            <li class="mb-2">✅ <strong>External & Internal Issues Register</strong> - Comprehensive issue tracking with risk/opportunity classification</li>
+                            <li class="mb-2">✅ <strong>Excel Export</strong> - Individual export for PEST, SWOT, and Issues Register</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="text-warning">📋 Dynamic Data Management</h6>
+                        <ul class="list-unstyled ms-3">
+                            <li class="mb-2">✅ <strong>Customer Satisfaction & Feedback</strong> - Track feedback sources, summaries, and status</li>
+                            <li class="mb-2">✅ <strong>Quality Objectives Tracking</strong> - Monitor targets vs. actual performance (Global & Local)</li>
+                            <li class="mb-2">✅ <strong>Process Performance Monitoring</strong> - KPI tracking with conformance status</li>
+                            <li class="mb-2">✅ <strong>Nonconformities & Corrective Actions</strong> - Full NC lifecycle management</li>
+                            <li class="mb-2">✅ <strong>KPI Performance Dashboard</strong> - Trend analysis and target monitoring</li>
+                            <li class="mb-2">✅ <strong>Audit Results Management</strong> - Internal/external audit tracking</li>
+                            <li class="mb-2">✅ <strong>Supplier Performance Evaluation</strong> - Rating and action tracking</li>
+                            <li class="mb-2">✅ <strong>Resource Adequacy Assessment</strong> - Gap analysis and planning</li>
+                            <li class="mb-2">✅ <strong>Risk & Opportunity Action Tracking</strong> - Effectiveness monitoring</li>
+                            <li class="mb-2">✅ <strong>Improvement Opportunities Register</strong> - Prioritized improvement pipeline</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="text-info">🎯 Action Item Management</h6>
+                        <ul class="list-unstyled ms-3">
+                            <li class="mb-2">✅ <strong>Action Item Tracking</strong> - Task, owner, due date, status for each agenda item</li>
+                            <li class="mb-2">✅ <strong>Centralized Summary</strong> - All action items aggregated with status badges</li>
+                            <li class="mb-2">✅ <strong>Priority Sorting</strong> - Automatic sorting by status and due date</li>
+                            <li class="mb-2">✅ <strong>Real-time Updates</strong> - Summary updates as you make changes</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="text-danger">📤 Export & Import Capabilities</h6>
+                        <ul class="list-unstyled ms-3">
+                            <li class="mb-2">✅ <strong>Print/PDF Export</strong> - Professional formatting with optimized page breaks</li>
+                            <li class="mb-2">✅ <strong>PowerPoint Export</strong> - Executive summary presentation with key data</li>
+                            <li class="mb-2">✅ <strong>JSON Export/Import</strong> - Complete data portability and backup</li>
+                            <li class="mb-2">✅ <strong>Individual Excel Exports</strong> - PEST, SWOT, and Issues Register as spreadsheets</li>
+                            <li class="mb-2">✅ <strong>Optimized Print Layout</strong> - Each major section prints on its own page</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-4">
+                        <h6 class="text-secondary">🔧 Technical Features</h6>
+                        <ul class="list-unstyled ms-3">
+                            <li class="mb-2">✅ <strong>Browser Compatibility</strong> - Works in all modern browsers</li>
+                            <li class="mb-2">✅ <strong>No Server Required</strong> - Runs entirely in the browser</li>
+                            <li class="mb-2">✅ <strong>Offline Capable</strong> - Continue working without internet</li>
+                            <li class="mb-2">✅ <strong>Data Persistence</strong> - LocalStorage ensures data retention</li>
+                            <li class="mb-2">✅ <strong>Toast Notifications</strong> - User-friendly feedback system</li>
+                            <li class="mb-2">✅ <strong>Modular Architecture</strong> - Clean, maintainable codebase</li>
+                        </ul>
+                    </div>
+
+                    <div class="alert alert-info">
+                        <h6 class="alert-heading">💡 Pro Tips</h6>
+                        <ul class="mb-0">
+                            <li>Use <kbd>Ctrl+P</kbd> or the "Finalize & Print" button for best print results</li>
+                            <li>Regular JSON exports serve as excellent backups of your review data</li>
+                            <li>PowerPoint exports are perfect for board presentations</li>
+                            <li>The app automatically saves your progress as you work</li>
+                            <li>All dynamic tables support copy/paste from Excel or Word</li>
+                        </ul>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <small class="text-muted">
+                            <strong>Version:</strong> 2.0 | 
+                            <strong>Last Updated:</strong> December 2024 | 
+                            <strong>ISO Standard:</strong> 9001:2015
+                        </small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+    <script src="https://unpkg.com/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

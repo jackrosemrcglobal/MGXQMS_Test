@@ -1,0 +1,2895 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRC Global - ISO Audit Presentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="logo.png" alt="MRC Global Logo" class="logo">
+                    <div class="company-info">
+                        <h1>MRC Global</h1>
+                        <p>ISO Audit Presentation Dashboard</p>
+                    </div>
+                </div>
+                <div class="audit-info">
+                    <div class="audit-badge">
+                        <i class="fas fa-certificate"></i>
+                        <span>ISO 9001:2015</span>
+                    </div>
+                    <div class="date-info">
+                        <span id="current-date"></span>
+                    </div>
+                </div>
+                <!-- Add the clear data button -->
+                <button id="clearDemoData" class="clear-demo-btn">
+                    <i class="fas fa-eraser"></i>
+                    Clear Demo Data
+                </button>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="sidebar">
+            <div class="nav-header">
+                <h3>Audit Sections</h3>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item active" data-section="overview">
+                    <i class="fas fa-home"></i>
+                    <span>Overview</span>
+                </li>
+                <li class="nav-item" data-section="organization">
+                    <i class="fas fa-sitemap"></i>
+                    <span>Organization</span>
+                </li>
+                <li class="nav-item" data-section="qms">
+                    <i class="fas fa-cogs"></i>
+                    <span>QMS Documentation</span>
+                </li>
+                <li class="nav-item" data-section="processes">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>Processes</span>
+                </li>
+                <li class="nav-item" data-section="records">
+                    <i class="fas fa-folder-open"></i>
+                    <span>Records & Evidence</span>
+                </li>
+                <li class="nav-item" data-section="risk">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Risk Management</span>
+                </li>
+                <li class="nav-item" data-section="training">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Training</span>
+                </li>
+                <li class="nav-item" data-section="audits">
+                    <i class="fas fa-search"></i>
+                    <span>Internal Audits</span>
+                </li>
+                <li class="nav-item" data-section="management">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Management Review</span>
+                </li>
+                <li class="nav-item" data-section="improvements">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Improvements</span>
+                </li>
+            </ul>
+            <!-- Add QMS Resources Section -->
+            <div class="nav-resources">
+                <div class="nav-header">
+                    <h3>QMS Resources</h3>
+                </div>
+                <ul class="resource-menu">
+                    <li class="resource-item">
+                        <i class="fas fa-book"></i>
+                        <span>Quality Manual</span>
+                    </li>
+                    <li class="resource-item">
+                        <i class="fas fa-file-alt"></i>
+                        <span>SOPs</span>
+                    </li>
+                    <li class="resource-item">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>Work Instructions</span>
+                    </li>
+                    <li class="resource-item">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Forms & Templates</span>
+                    </li>
+                    <li class="resource-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Training Materials</span>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Overview Section -->
+            <section id="overview" class="content-section active">
+                <div class="section-header">
+                    <h2>Audit Overview</h2>
+                    <div class="status-indicators">
+                        <div class="status-item">
+                            <div class="status-dot green"></div>
+                            <span>QMS Compliant</span>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-dot green"></div>
+                            <span>Documentation Current</span>
+                        </div>
+                        <div class="status-item">
+                            <div class="status-dot amber"></div>
+                            <span>2 Minor NCs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>Certification Status</h3>
+                            <p class="metric-value">ISO 9001:2015</p>
+                            <p class="metric-detail">Valid until Dec 2025</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>Last Audit</h3>
+                            <p class="metric-value">March 2024</p>
+                            <p class="metric-detail">Surveillance Audit</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>Compliance Score</h3>
+                            <p class="metric-value">98.5%</p>
+                            <p class="metric-detail">Above industry average</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>Trained Personnel</h3>
+                            <p class="metric-value">1,847</p>
+                            <p class="metric-detail">ISO awareness complete</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="overview-charts">
+                    <div class="chart-container">
+                        <h3>Audit Performance Trend</h3>
+                        <div class="chart-placeholder">
+                            <canvas id="performanceChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Non-Conformities by Category</h3>
+                        <div class="chart-placeholder">
+                            <canvas id="ncChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Organization Section -->
+            <section id="organization" class="content-section">
+                <div class="section-header">
+                    <h2>Organizational Structure</h2>
+                    <button class="export-btn">
+                        <i class="fas fa-download"></i>
+                        Export Structure
+                    </button>
+                </div>
+
+                <div class="org-structure">
+                    <div class="org-level">
+                        <div class="org-card executive">
+                            <h4>Executive Leadership</h4>
+                            <p>CEO, COO, Quality Director</p>
+                            <div class="org-metrics">
+                                <span>3 Executives</span>
+                                <span>ISO Certified</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="org-level">
+                        <div class="org-card department">
+                            <h4>Operations</h4>
+                            <p>Manufacturing & Supply Chain</p>
+                            <div class="org-metrics">
+                                <span>12 Managers</span>
+                                <span>400+ Staff</span>
+                            </div>
+                        </div>
+                        <div class="org-card department">
+                            <h4>Quality Assurance</h4>
+                            <p>QC, QA, Compliance</p>
+                            <div class="org-metrics">
+                                <span>8 Specialists</span>
+                                <span>100% Certified</span>
+                            </div>
+                        </div>
+                        <div class="org-card department">
+                            <h4>Sales & Service</h4>
+                            <p>Customer Relations</p>
+                            <div class="org-metrics">
+                                <span>25 Representatives</span>
+                                <span>ISO Aware</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="responsibilities-matrix">
+                    <div class="matrix-header">
+                        <h3>Quality Responsibilities Matrix</h3>
+                        <div class="matrix-controls">
+                            <button class="add-role-btn">
+                                <i class="fas fa-plus"></i>
+                                Add Role
+                            </button>
+                            <button class="save-matrix-btn">
+                                <i class="fas fa-save"></i>
+                                Save Changes
+                            </button>
+                        </div>
+                    </div>
+                    <div class="matrix-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Role</th>
+                                    <th>QMS Development</th>
+                                    <th>Implementation</th>
+                                    <th>Monitoring</th>
+                                    <th>Review</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Quality Director</td>
+                                    <td><i class="fas fa-check text-green"></i></td>
+                                    <td><i class="fas fa-check text-green"></i></td>
+                                    <td><i class="fas fa-check text-green"></i></td>
+                                    <td><i class="fas fa-check text-green"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Department Managers</td>
+                                    <td><i class="fas fa-circle text-amber"></i></td>
+                                    <td><i class="fas fa-check text-green"></i></td>
+                                    <td><i class="fas fa-check text-green"></i></td>
+                                    <td><i class="fas fa-circle text-amber"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Quality Team</td>
+                                    <td><i class="fas fa-check text-green"></i></td>
+                                    <td><i class="fas fa-check text-green"></i></td>
+                                    <td><i class="fas fa-check text-green"></i></td>
+                                    <td><i class="fas fa-check text-green"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Process Owners</td>
+                                    <td><i class="fas fa-circle text-amber"></i></td>
+                                    <td><i class="fas fa-check text-green"></i></td>
+                                    <td><i class="fas fa-check text-green"></i></td>
+                                    <td><i class="fas fa-circle text-amber"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- QMS Documentation Section -->
+            <section id="qms" class="content-section">
+                <div class="section-header">
+                    <h2>QMS Documentation</h2>
+                    <div class="doc-status">
+                        <span class="status-badge current">All Documents Current</span>
+                        <span class="last-review">Last Review: March 2024</span>
+                    </div>
+                </div>
+
+                <div class="metrics-grid" style="margin-bottom: 2rem;">
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-file-alt"></i></div>
+                        <div class="metric-content">
+                            <h3>Total Documents</h3>
+                            <p class="metric-value" id="qms-total-docs">206</p>
+                            <p class="metric-detail">Across all levels</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-sync-alt"></i></div>
+                        <div class="metric-content">
+                            <h3>Reviewed (YTD)</h3>
+                            <p class="metric-value">188</p>
+                            <p class="metric-detail">91% reviewed on schedule</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div class="metric-content">
+                            <h3>Review Overdue</h3>
+                            <p class="metric-value" style="color: #f59e0b;">5</p>
+                            <p class="metric-detail">Action required</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-plus-circle"></i></div>
+                        <div class="metric-content">
+                            <h3>New Documents (6m)</h3>
+                            <p class="metric-value">12</p>
+                            <p class="metric-detail">Mainly work instructions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="doc-hierarchy">
+                    <div class="doc-level level-1">
+                        <div class="doc-card policy">
+                            <div class="doc-header">
+                                <h4>Level 1: Quality Policy</h4>
+                                <button class="add-doc-btn" data-level="1"><i class="fas fa-plus"></i> Add Document</button>
+                            </div>
+                            <div class="doc-items" data-level="1">
+                                <div class="doc-item">
+                                    <i class="fas fa-file-alt"></i>
+                                    <a href="#" class="doc-link" data-doc-name="MRC-QP-001 Quality Policy">MRC-QP-001 Quality Policy</a>
+                                    <div class="doc-actions">
+                                        <button class="edit-doc-btn"><i class="fas fa-edit"></i></button>
+                                        <button class="delete-doc-btn"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                    <div class="doc-status-indicator current"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="doc-level level-2">
+                        <div class="doc-card manual">
+                            <div class="doc-header">
+                                <h4>Level 2: Quality Manual</h4>
+                                <button class="add-doc-btn" data-level="2"><i class="fas fa-plus"></i> Add Document</button>
+                            </div>
+                            <div class="doc-items" data-level="2">
+                                <div class="doc-item">
+                                    <i class="fas fa-book"></i>
+                                    <a href="#" class="doc-link" data-doc-name="MRC-QM-001 Quality Manual">MRC-QM-001 Quality Manual</a>
+                                    <div class="doc-actions">
+                                        <button class="edit-doc-btn"><i class="fas fa-edit"></i></button>
+                                        <button class="delete-doc-btn"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                    <div class="doc-status-indicator current"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="doc-level level-3">
+                        <div class="doc-card procedures">
+                            <div class="doc-header">
+                                <h4>Level 3: Procedures</h4>
+                                <button class="add-doc-btn" data-level="3"><i class="fas fa-plus"></i> Add Procedure</button>
+                            </div>
+                            <div class="doc-items" data-level="3">
+                                <div class="doc-item">
+                                    <i class="fas fa-clipboard-list"></i>
+                                    <a href="#" class="doc-link" data-doc-name="Document Control Procedure">Document Control Procedure</a>
+                                    <div class="doc-actions">
+                                        <button class="edit-doc-btn"><i class="fas fa-edit"></i></button>
+                                        <button class="delete-doc-btn"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                    <div class="doc-status-indicator current"></div>
+                                </div>
+                                <div class="doc-item">
+                                    <i class="fas fa-clipboard-list"></i>
+                                    <a href="#" class="doc-link" data-doc-name="Management Review Procedure">Management Review Procedure</a>
+                                    <div class="doc-actions">
+                                        <button class="edit-doc-btn"><i class="fas fa-edit"></i></button>
+                                        <button class="delete-doc-btn"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                    <div class="doc-status-indicator current"></div>
+                                </div>
+                                <div class="doc-item">
+                                    <i class="fas fa-clipboard-list"></i>
+                                    <a href="#" class="doc-link" data-doc-name="Internal Audit Procedure">Internal Audit Procedure</a>
+                                    <div class="doc-actions">
+                                        <button class="edit-doc-btn"><i class="fas fa-edit"></i></button>
+                                        <button class="delete-doc-btn"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                    <div class="doc-status-indicator current"></div>
+                                </div>
+                                <div class="doc-item">
+                                    <i class="fas fa-clipboard-list"></i>
+                                    <a href="#" class="doc-link" data-doc-name="Corrective Action Procedure">Corrective Action Procedure</a>
+                                    <div class="doc-actions">
+                                        <button class="edit-doc-btn"><i class="fas fa-edit"></i></button>
+                                        <button class="delete-doc-btn"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                    <div class="doc-status-indicator current"></div>
+                                </div>
+                                <div class="doc-collapse">
+                                    <button class="collapse-btn">View All 24 Procedures</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="doc-level level-4">
+                        <div class="doc-card instructions">
+                            <div class="doc-header">
+                                <h4>Level 4: Work Instructions</h4>
+                                <span class="doc-count">156 Documents</span>
+                            </div>
+                            <div class="doc-items">
+                                <div class="doc-summary">
+                                    <div class="summary-item">
+                                        <span class="summary-count">89</span>
+                                        <span class="summary-label">Manufacturing</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-count">34</span>
+                                        <span class="summary-label">Quality Control</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-count">33</span>
+                                        <span class="summary-label">Support Processes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="document-control-info">
+                    <h3>Document Control Summary</h3>
+                    <div class="control-metrics">
+                        <div class="control-metric">
+                            <i class="fas fa-sync-alt"></i>
+                            <div>
+                                <span class="metric-value">100%</span>
+                                <span class="metric-label">Current Revisions</span>
+                            </div>
+                        </div>
+                        <div class="control-metric">
+                            <i class="fas fa-shield-check"></i>
+                            <div>
+                                <span class="metric-value">Full</span>
+                                <span class="metric-label">Approval Trail</span>
+                            </div>
+                        </div>
+                        <div class="control-metric">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <span class="metric-value">Annual</span>
+                                <span class="metric-label">Review Cycle</span>
+                            </div>
+                        </div>
+                        <div class="control-metric">
+                            <i class="fas fa-database"></i>
+                            <div>
+                                <span class="metric-value">Digital</span>
+                                <span class="metric-label">Archive System</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Processes Section -->
+            <section id="processes" class="content-section">
+                <div class="section-header">
+                    <h2>Process Landscape</h2>
+                    <div class="process-controls">
+                        <select class="process-filter">
+                            <option value="all">All Processes</option>
+                            <option value="leadership">Leadership</option>
+                            <option value="core">Core</option>
+                            <option value="support">Support</option>
+                        </select>
+                        <button class="export-btn">
+                            <i class="fas fa-download"></i>
+                            Export Process Maps
+                        </button>
+                    </div>
+                </div>
+
+                <div class="process-interaction-map">
+                    <div class="process-level customer-needs">
+                        <div class="process-header">Customer Requirements</div>
+                        <div class="process-arrow-down"><i class="fas fa-arrow-down"></i></div>
+                    </div>
+
+                    <div class="process-group leadership" data-group="leadership">
+                        <h3>Leadership Processes</h3>
+                        <div class="process-items">
+                            <div class="process-item" data-process="strategic">
+                                <div class="process-icon"><i class="fas fa-chess"></i></div>
+                                <div class="process-content">
+                                    <h4>Strategic Planning</h4>
+                                    <p>Business direction and objectives</p>
+                                    <div class="process-indicators">
+                                        <span class="effectiveness">98%</span>
+                                        <span class="review-status">Last Review: Mar 2024</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="process-item" data-process="review">
+                                <div class="process-icon"><i class="fas fa-chart-line"></i></div>
+                                <div class="process-content">
+                                    <h4>Management Review</h4>
+                                    <p>Performance evaluation and actions</p>
+                                    <div class="process-indicators">
+                                        <span class="effectiveness">95%</span>
+                                        <span class="review-status">Last Review: Mar 2024</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="process-item" data-process="resource">
+                                <div class="process-icon"><i class="fas fa-cubes"></i></div>
+                                <div class="process-content">
+                                    <h4>Resource Management</h4>
+                                    <p>Allocation and optimization</p>
+                                    <div class="process-indicators">
+                                        <span class="effectiveness">92%</span>
+                                        <span class="review-status">Last Review: Feb 2024</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-flow-container">
+                        <div class="process-group core" data-group="core">
+                            <h3>Core Processes</h3>
+                            <div class="process-items">
+                                <div class="process-item" data-process="management">
+                                    <div class="process-icon"><i class="fas fa-users-cog"></i></div>
+                                    <div class="process-content">
+                                        <h4>Management Responsibility</h4>
+                                        <p>Strategic direction and leadership</p>
+                                        <div class="process-indicators">
+                                            <span class="effectiveness">96%</span>
+                                            <span class="review-status">Last Review: Mar 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="process-item" data-process="measurement">
+                                    <div class="process-icon"><i class="fas fa-chart-line"></i></div>
+                                    <div class="process-content">
+                                        <h4>Measurement & Improvement</h4>
+                                        <p>Analysis and enhancement</p>
+                                        <div class="process-indicators">
+                                            <span class="effectiveness">94%</span>
+                                            <span class="review-status">Last Review: Mar 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="process-item" data-process="resource">
+                                    <div class="process-icon"><i class="fas fa-cubes"></i></div>
+                                    <div class="process-content">
+                                        <h4>Resource Management</h4>
+                                        <p>Resource optimization</p>
+                                        <div class="process-indicators">
+                                            <span class="effectiveness">92%</span>
+                                            <span class="review-status">Last Review: Mar 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="process-item" data-process="marketing">
+                                    <div class="process-icon"><i class="fas fa-bullhorn"></i></div>
+                                    <div class="process-content">
+                                        <h4>Marketing</h4>
+                                        <p>Market development</p>
+                                        <div class="process-indicators">
+                                            <span class="effectiveness">95%</span>
+                                            <span class="review-status">Last Review: Mar 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="process-item" data-process="sales">
+                                    <div class="process-icon"><i class="fas fa-handshake"></i></div>
+                                    <div class="process-content">
+                                        <h4>Sales & Projects</h4>
+                                        <p>Customer engagement</p>
+                                        <div class="process-indicators">
+                                            <span class="effectiveness">93%</span>
+                                            <span class="review-status">Last Review: Mar 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="process-item" data-process="warehousing">
+                                    <div class="process-icon"><i class="fas fa-warehouse"></i></div>
+                                    <div class="process-content">
+                                        <h4>Warehousing</h4>
+                                        <p>Inventory management</p>
+                                        <div class="process-indicators">
+                                            <span class="effectiveness">91%</span>
+                                            <span class="review-status">Last Review: Mar 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="process-item" data-process="shopwork">
+                                    <div class="process-icon"><i class="fas fa-industry"></i></div>
+                                    <div class="process-content">
+                                        <h4>Shop Work</h4>
+                                        <p>Production operations</p>
+                                        <div class="process-indicators">
+                                            <span class="effectiveness">94%</span>
+                                            <span class="review-status">Last Review: Mar 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="process-item" data-process="purchasing">
+                                    <div class="process-icon"><i class="fas fa-shopping-cart"></i></div>
+                                    <div class="process-content">
+                                        <h4>Purchasing</h4>
+                                        <p>Procurement management</p>
+                                        <div class="process-indicators">
+                                            <span class="effectiveness">92%</span>
+                                            <span class="review-status">Last Review: Mar 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="process-group support" data-group="support">
+                            <h3>Support Processes</h3>
+                            <div class="process-items">
+                                <div class="process-item" data-process="maintenance">
+                                    <div class="process-icon"><i class="fas fa-tools"></i></div>
+                                    <div class="process-content">
+                                        <h4>Maintenance</h4>
+                                        <p>Equipment and facility upkeep</p>
+                                        <div class="process-indicators">
+                                            <span class="effectiveness">91%</span>
+                                            <span class="review-status">Last Review: Feb 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="process-item" data-process="hr">
+                                    <div class="process-icon"><i class="fas fa-users"></i></div>
+                                    <div class="process-content">
+                                        <h4>HR Management</h4>
+                                        <p>Personnel and training</p>
+                                        <div class="process-indicators">
+                                            <span class="effectiveness">95%</span>
+                                            <span class="review-status">Last Review: Mar 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="process-item" data-process="purchasing">
+                                    <div class="process-icon"><i class="fas fa-shopping-cart"></i></div>
+                                    <div class="process-content">
+                                        <h4>Purchasing</h4>
+                                        <p>Supplier management</p>
+                                        <div class="process-indicators">
+                                            <span class="effectiveness">94%</span>
+                                            <span class="review-status">Last Review: Mar 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process-level customer-satisfaction">
+                        <div class="process-arrow-up"><i class="fas fa-arrow-up"></i></div>
+                        <div class="process-header">Customer Satisfaction</div>
+                    </div>
+                </div>
+
+                <div class="process-kpi-dashboard">
+                    <h3>Process Performance Indicators</h3>
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <i class="fas fa-check-circle"></i>
+                                <h4>Overall Process Effectiveness</h4>
+                            </div>
+                            <div class="kpi-value">94.5%</div>
+                            <div class="kpi-trend positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>2.3% vs Last Quarter</span>
+                            </div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <i class="fas fa-clock"></i>
+                                <h4>Process Cycle Time</h4>
+                            </div>
+                            <div class="kpi-value">-15%</div>
+                            <div class="kpi-trend positive">
+                                <i class="fas fa-arrow-down"></i>
+                                <span>Reduction in Time</span>
+                            </div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <h4>Process Deviations</h4>
+                            </div>
+                            <div class="kpi-value">12</div>
+                            <div class="kpi-trend negative">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>3 more than target</span>
+                            </div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <i class="fas fa-chart-pie"></i>
+                                <h4>Resource Utilization</h4>
+                            </div>
+                            <div class="kpi-value">89%</div>
+                            <div class="kpi-trend positive">
+                                <i class="fas fa-arrow-up"></i>
+                                <span>4% vs Last Quarter</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add new process performance tables section -->
+                    <div class="process-performance-tables">
+                        <h3>Process Performance Data</h3>
+                        
+                        <div class="table-controls">
+                            <div class="table-filter">
+                                <label for="timeFilter">Time Period:</label>
+                                <select id="timeFilter">
+                                    <option value="q1-2024">Q1 2024</option>
+                                    <option value="q4-2023">Q4 2023</option>
+                                    <option value="q3-2023">Q3 2023</option>
+                                    <option value="q2-2023">Q2 2023</option>
+                                </select>
+                            </div>
+                            <button class="export-table-btn">
+                                <i class="fas fa-download"></i>
+                                Export Data
+                            </button>
+                        </div>
+
+                        <div class="performance-table">
+                            <h4>Core Process Performance</h4>
+                            <div class="table-wrapper">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Process</th>
+                                            <th>Effectiveness</th>
+                                            <th>Efficiency</th>
+                                            <th>Cycle Time</th>
+                                            <th>Defect Rate</th>
+                                            <th>Resource Utilization</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Order Processing</td>
+                                            <td>96.5%</td>
+                                            <td>94.2%</td>
+                                            <td>1.2 days</td>
+                                            <td>0.8%</td>
+                                            <td>92%</td>
+                                            <td><span class="status-pill green">On Target</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Manufacturing</td>
+                                            <td>95.8%</td>
+                                            <td>91.5%</td>
+                                            <td>2.5 days</td>
+                                            <td>1.2%</td>
+                                            <td>88%</td>
+                                            <td><span class="status-pill green">On Target</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Quality Control</td>
+                                            <td>98.2%</td>
+                                            <td>93.8%</td>
+                                            <td>0.5 days</td>
+                                            <td>0.3%</td>
+                                            <td>95%</td>
+                                            <td><span class="status-pill green">On Target</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Shipping</td>
+                                            <td>92.4%</td>
+                                            <td>88.6%</td>
+                                            <td>1.8 days</td>
+                                            <td>1.5%</td>
+                                            <td>86%</td>
+                                            <td><span class="status-pill amber">Review</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="performance-table">
+                            <h4>Support Process Performance</h4>
+                            <div class="table-wrapper">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Process</th>
+                                            <th>Response Time</th>
+                                            <th>Resolution Rate</th>
+                                            <th>Customer Satisfaction</th>
+                                            <th>Cost Efficiency</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Document Control</td>
+                                            <td>4 hours</td>
+                                            <td>96.5%</td>
+                                            <td>4.5/5</td>
+                                            <td>92%</td>
+                                            <td><span class="status-pill green">On Target</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Maintenance</td>
+                                            <td>2 hours</td>
+                                            <td>94.8%</td>
+                                            <td>4.3/5</td>
+                                            <td>89%</td>
+                                            <td><span class="status-pill green">On Target</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Training</td>
+                                            <td>1 day</td>
+                                            <td>91.2%</td>
+                                            <td>4.2/5</td>
+                                            <td>85%</td>
+                                            <td><span class="status-pill amber">Review</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>IT Support</td>
+                                            <td>1 hour</td>
+                                            <td>97.5%</td>
+                                            <td>4.6/5</td>
+                                            <td>94%</td>
+                                            <td><span class="status-pill green">On Target</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="performance-table">
+                            <h4>Process Improvement Metrics</h4>
+                            <div class="table-wrapper">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Process Area</th>
+                                            <th>Improvement Projects</th>
+                                            <th>Cost Savings</th>
+                                            <th>Time Savings</th>
+                                            <th>Quality Impact</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Manufacturing</td>
+                                            <td>3</td>
+                                            <td>$245K</td>
+                                            <td>15%</td>
+                                            <td>+2.5%</td>
+                                            <td><span class="status-pill green">On Target</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Quality Control</td>
+                                            <td>2</td>
+                                            <td>$180K</td>
+                                            <td>12%</td>
+                                            <td>+1.8%</td>
+                                            <td><span class="status-pill green">On Target</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Supply Chain</td>
+                                            <td>2</td>
+                                            <td>$320K</td>
+                                            <td>18%</td>
+                                            <td>+2.2%</td>
+                                            <td><span class="status-pill green">On Target</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Customer Service</td>
+                                            <td>1</td>
+                                            <td>$90K</td>
+                                            <td>8%</td>
+                                            <td>+1.5%</td>
+                                            <td><span class="status-pill amber">Review</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="performance-table">
+                            <h4>Process Performance Overview</h4>
+                            <div class="table-wrapper">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Process</th>
+                                            <th>Effectiveness</th>
+                                            <th>Efficiency</th>
+                                            <th>Cycle Time</th>
+                                            <th>Resource Utilization</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Management Responsibility</td>
+                                            <td>96%</td>
+                                            <td>94%</td>
+                                            <td>5 days</td>
+                                            <td>92%</td>
+                                            <td><span class="status-pill green">On Target</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Measurement & Improvement</td>
+                                            <td>94%</td>
+                                            <td>92%</td>
+                                            <td>3 days</td>
+                                            <td>90%</td>
+                                            <td><span class="status-pill green">On Target</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Resource Management</td>
+                                            <td>92%</td>
+                                            <td>90%</td>
+                                            <td>4 days</td>
+                                            <td>88%</td>
+                                            <td><span class="status-pill amber">Review</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Marketing</td>
+                                            <td>95%</td>
+                                            <td>93%</td>
+                                            <td>7 days</td>
+                                            <td>91%</td>
+                                            <td><span class="status-pill green">On Target</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sales & Projects</td>
+                                            <td>93%</td>
+                                            <td>91%</td>
+                                            <td>6 days</td>
+                                            <td>89%</td>
+                                            <td><span class="status-pill green">On Target</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Warehousing</td>
+                                            <td>91%</td>
+                                            <td>89%</td>
+                                            <td>2 days</td>
+                                            <td>87%</td>
+                                            <td><span class="status-pill amber">Review</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Shop Work</td>
+                                            <td>94%</td>
+                                            <td>92%</td>
+                                            <td>3 days</td>
+                                            <td>90%</td>
+                                            <td><span class="status-pill green">On Target</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Purchasing</td>
+                                            <td>92%</td>
+                                            <td>90%</td>
+                                            <td>4 days</td>
+                                            <td>88%</td>
+                                            <td><span class="status-pill amber">Review</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Records & Evidence Section -->
+            <section id="records" class="content-section">
+                <div class="section-header">
+                    <h2>Records & Evidence</h2>
+                    <div class="record-search-container">
+                         <i class="fas fa-search"></i>
+                        <input type="search" id="recordSearch" placeholder="Search records by title or description...">
+                    </div>
+                </div>
+
+                <div class="metrics-grid" style="margin-bottom: 2rem;">
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-database"></i></div>
+                        <div class="metric-content">
+                            <h3>Total Records</h3>
+                            <p class="metric-value">5,128</p>
+                            <p class="metric-detail">Securely archived</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-plus-circle"></i></div>
+                        <div class="metric-content">
+                            <h3>Added This Month</h3>
+                            <p class="metric-value">312</p>
+                            <p class="metric-detail">Normal volume</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-shield-check"></i></div>
+                        <div class="metric-content">
+                            <h3>Compliance Rate</h3>
+                            <p class="metric-value">99.8%</p>
+                            <p class="metric-detail">Retention policy compliant</p>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-clock"></i></div>
+                        <div class="metric-content">
+                            <h3>Avg. Retrieval Time</h3>
+                            <p class="metric-value">&lt; 5 sec</p>
+                            <p class="metric-detail">Digital archive access</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="records-browser">
+                    <div class="browser-header">
+                        <h3>Record Browser</h3>
+                        <div class="record-filters">
+                            <select id="recordFilter" class="filter-select">
+                                <option value="all">All Categories</option>
+                                <option value="quality">Quality</option>
+                                <option value="production">Production</option>
+                                <option value="training">Training</option>
+                                <option value="equipment">Equipment</option>
+                            </select>
+                            <button class="export-btn">
+                                <i class="fas fa-download"></i>
+                                Export Index
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="recordsGrid" class="records-grid-enhanced">
+                        <div class="record-card-enhanced" data-category="quality">
+                            <div class="record-card-icon quality"><i class="fas fa-clipboard-check"></i></div>
+                            <div class="record-card-content">
+                                <h4>Quality Control Records</h4>
+                                <p>Inspection reports, non-conformance records, and corrective actions.</p>
+                                <div class="record-card-meta">
+                                    <span><i class="fas fa-file-alt"></i> 1,234 Records</span>
+                                    <span><i class="fas fa-sync-alt"></i> Updated: Today</span>
+                                </div>
+                            </div>
+                            <button class="view-records-btn">View Records</button>
+                        </div>
+
+                        <div class="record-card-enhanced" data-category="production">
+                            <div class="record-card-icon production"><i class="fas fa-cogs"></i></div>
+                            <div class="record-card-content">
+                                <h4>Production Records</h4>
+                                <p>Batch logs, production output data, and operational parameters.</p>
+                                <div class="record-card-meta">
+                                    <span><i class="fas fa-file-alt"></i> 2,567 Records</span>
+                                    <span><i class="fas fa-sync-alt"></i> Updated: Today</span>
+                                </div>
+                            </div>
+                            <button class="view-records-btn">View Records</button>
+                        </div>
+
+                        <div class="record-card-enhanced" data-category="training">
+                            <div class="record-card-icon training"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="record-card-content">
+                                <h4>Training Records</h4>
+                                <p>Competency matrices, attendance, and certification tracking.</p>
+                                <div class="record-card-meta">
+                                    <span><i class="fas fa-file-alt"></i> 871 Records</span>
+                                    <span><i class="fas fa-sync-alt"></i> Updated: Yesterday</span>
+                                </div>
+                            </div>
+                            <button class="view-records-btn">View Records</button>
+                        </div>
+
+                        <div class="record-card-enhanced" data-category="equipment">
+                            <div class="record-card-icon equipment"><i class="fas fa-tools"></i></div>
+                            <div class="record-card-content">
+                                <h4>Equipment Records</h4>
+                                <p>Calibration certificates, maintenance logs, and service history.</p>
+                                <div class="record-card-meta">
+                                    <span><i class="fas fa-file-alt"></i> 456 Records</span>
+                                    <span><i class="fas fa-sync-alt"></i> Updated: Yesterday</span>
+                                </div>
+                            </div>
+                           <button class="view-records-btn">View Records</button>
+                        </div>
+                    </div>
+                     <p id="noRecordsFound" class="no-results-message" style="display: none;">No records match your search criteria.</p>
+                </div>
+
+                <div class="record-compliance-dashboard">
+                    <div class="retention-schedule">
+                        <h3>Record Retention Schedule</h3>
+                        <div class="schedule-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Record Type</th>
+                                        <th>Retention Period</th>
+                                        <th>Storage Location</th>
+                                        <th>Disposition</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Quality Records</td>
+                                        <td>7 Years</td>
+                                        <td>Digital Archive</td>
+                                        <td>Archive</td>
+                                        <td><span class="status-pill green">Compliant</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Production Logs</td>
+                                        <td>3 Years</td>
+                                        <td>Digital Archive</td>
+                                        <td>Destroy</td>
+                                        <td><span class="status-pill green">Compliant</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Training Records</td>
+                                        <td>Employment + 5 Years</td>
+                                        <td>HR System</td>
+                                        <td>Archive</td>
+                                        <td><span class="status-pill green">Compliant</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Audit Reports</td>
+                                        <td>10 Years</td>
+                                        <td>QMS Portal</td>
+                                        <td>Archive</td>
+                                        <td><span class="status-pill green">Compliant</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="record-volume-chart">
+                        <h3>Record Volume by Quarter</h3>
+                        <div class="chart-container" style="padding: 0; box-shadow: none; border: none;">
+                            <canvas id="recordVolumeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Risk Management Section -->
+            <section id="risk" class="content-section">
+                <div class="section-header">
+                    <h2>Risk Management</h2>
+                    <button class="export-btn">
+                        <i class="fas fa-download"></i>
+                        Export Risk Register
+                    </button>
+                </div>
+
+                <div class="risk-summary">
+                    <div class="risk-stats">
+                        <div class="risk-stat">
+                            <h4>Total Risks</h4>
+                            <div class="stat-value">24</div>
+                        </div>
+                        <div class="risk-stat">
+                            <h4>High Priority</h4>
+                            <div class="stat-value red">3</div>
+                        </div>
+                        <div class="risk-stat">
+                            <h4>Medium Priority</h4>
+                            <div class="stat-value amber">8</div>
+                        </div>
+                        <div class="risk-stat">
+                            <h4>Low Priority</h4>
+                            <div class="stat-value green">13</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="risk-matrix">
+                    <h3>Risk Assessment Matrix</h3>
+                    <div class="matrix-container">
+                        <table class="heat-matrix">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Insignificant</th>
+                                    <th>Minor</th>
+                                    <th>Moderate</th>
+                                    <th>Major</th>
+                                    <th>Catastrophic</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Almost Certain</td>
+                                    <td class="medium">M</td>
+                                    <td class="high">H</td>
+                                    <td class="high">H</td>
+                                    <td class="extreme">E</td>
+                                    <td class="extreme">E</td>
+                                </tr>
+                                <tr>
+                                    <td>Likely</td>
+                                    <td class="medium">M</td>
+                                    <td class="medium">M</td>
+                                    <td class="high">H</td>
+                                    <td class="high">H</td>
+                                    <td class="extreme">E</td>
+                                </tr>
+                                <tr>
+                                    <td>Possible</td>
+                                    <td class="low">L</td>
+                                    <td class="medium">M</td>
+                                    <td class="medium">M</td>
+                                    <td class="high">H</td>
+                                    <td class="high">H</td>
+                                </tr>
+                                <tr>
+                                    <td>Unlikely</td>
+                                    <td class="low">L</td>
+                                    <td class="low">L</td>
+                                    <td class="medium">M</td>
+                                    <td class="medium">M</td>
+                                    <td class="high">H</td>
+                                </tr>
+                                <tr>
+                                    <td>Rare</td>
+                                    <td class="low">L</td>
+                                    <td class="low">L</td>
+                                    <td class="low">L</td>
+                                    <td class="medium">M</td>
+                                    <td class="medium">M</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="risk-actions">
+                    <h3>Top Risk Mitigation Actions</h3>
+                    <div class="action-cards">
+                        <div class="action-card high">
+                            <div class="action-header">
+                                <span class="risk-level">High Risk</span>
+                                <span class="action-status">In Progress</span>
+                            </div>
+                            <h4>Supply Chain Disruption</h4>
+                            <p>Multiple supplier qualification program</p>
+                            <div class="action-progress">
+                                <div class="progress-bar" style="width: 75%"></div>
+                                <span>75% Complete</span>
+                            </div>
+                        </div>
+
+                        <div class="action-card medium">
+                            <div class="action-header">
+                                <span class="risk-level">Medium Risk</span>
+                                <span class="action-status">Ongoing</span>
+                            </div>
+                            <h4>Equipment Failure</h4>
+                            <p>Preventive maintenance schedule</p>
+                            <div class="action-progress">
+                                <div class="progress-bar" style="width: 90%"></div>
+                                <span>90% Complete</span>
+                            </div>
+                        </div>
+
+                        <div class="action-card low">
+                            <div class="action-header">
+                                <span class="risk-level">Low Risk</span>
+                                <span class="action-status">Planned</span>
+                            </div>
+                            <h4>Documentation Control</h4>
+                            <p>Digital system implementation</p>
+                            <div class="action-progress">
+                                <div class="progress-bar" style="width: 30%"></div>
+                                <span>30% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Training Section -->
+            <section id="training" class="content-section">
+                <div class="section-header">
+                    <h2>Training & Competency</h2>
+                    <button class="export-btn">
+                        <i class="fas fa-download"></i>
+                        Export Training Records
+                    </button>
+                </div>
+
+                <div class="training-metrics">
+                    <div class="metric-tile">
+                        <div class="metric-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="metric-data">
+                            <h4>Total Employees</h4>
+                            <div class="metric-value">1,847</div>
+                        </div>
+                    </div>
+                    <div class="metric-tile">
+                        <div class="metric-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="metric-data">
+                            <h4>ISO Trained</h4>
+                            <div class="metric-value">98%</div>
+                        </div>
+                    </div>
+                    <div class="metric-tile">
+                        <div class="metric-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="metric-data">
+                            <h4>Up-to-date</h4>
+                            <div class="metric-value">96%</div>
+                        </div>
+                    </div>
+                    <div class="metric-tile">
+                        <div class="metric-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="metric-data">
+                            <h4>Training Hours</h4>
+                            <div class="metric-value">24,680</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="training-programs" style="display: none;">
+                    <h3>Active Training Programs</h3>
+                    <div class="program-cards">
+                        <div class="program-card">
+                            <div class="program-header">
+                                <i class="fas fa-book"></i>
+                                <h4>ISO 9001:2015 Awareness</h4>
+                            </div>
+                            <div class="program-stats">
+                                <div class="stat">
+                                    <span class="label">Completion</span>
+                                    <span class="value">98%</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Participants</span>
+                                    <span class="value">1,847</span>
+                                </div>
+                            </div>
+                            <div class="program-status">
+                                <div class="progress-bar" style="width: 98%"></div>
+                            </div>
+                        </div>
+
+                        <div class="program-card">
+                            <div class="program-header">
+                                <i class="fas fa-tools"></i>
+                                <h4>Process Control</h4>
+                            </div>
+                            <div class="program-stats">
+                                <div class="stat">
+                                    <span class="label">Completion</span>
+                                    <span class="value">85%</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Participants</span>
+                                    <span class="value">456</span>
+                                </div>
+                            </div>
+                            <div class="program-status">
+                                <div class="progress-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+
+                        <div class="program-card">
+                            <div class="program-header">
+                                <i class="fas fa-clipboard-check"></i>
+                                <h4>Internal Auditor</h4>
+                            </div>
+                            <div class="program-stats">
+                                <div class="stat">
+                                    <span class="label">Completion</span>
+                                    <span class="value">100%</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">Participants</span>
+                                    <span class="value">24</span>
+                                </div>
+                            </div>
+                            <div class="program-status">
+                                <div class="progress-bar" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="competency-matrix" style="display: none;">
+                    <h3>Competency Matrix</h3>
+                    <div class="matrix-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Role</th>
+                                    <th>ISO Requirements</th>
+                                    <th>Process Control</th>
+                                    <th>Quality Tools</th>
+                                    <th>Risk Management</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Quality Manager</td>
+                                    <td><span class="competency-level expert">Expert</span></td>
+                                    <td><span class="competency-level expert">Expert</span></td>
+                                    <td><span class="competency-level expert">Expert</span></td>
+                                    <td><span class="competency-level expert">Expert</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Process Owner</td>
+                                    <td><span class="competency-level advanced">Advanced</span></td>
+                                    <td><span class="competency-level expert">Expert</span></td>
+                                    <td><span class="competency-level advanced">Advanced</span></td>
+                                    <td><span class="competency-level advanced">Advanced</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Operator</td>
+                                    <td><span class="competency-level proficient">Proficient</span></td>
+                                    <td><span class="competency-level advanced">Advanced</span></td>
+                                    <td><span class="competency-level proficient">Proficient</span></td>
+                                    <td><span class="competency-level proficient">Proficient</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="training-overview">
+                    <div class="training-summary">
+                        <h3>Training Program Overview</h3>
+                        <div class="training-tabs">
+                            <button class="tab-btn active" data-tab="required">Required Training</button>
+                            <button class="tab-btn" data-tab="ongoing">Ongoing Development</button>
+                            <button class="tab-btn" data-tab="certifications">Certifications</button>
+                        </div>
+
+                        <div class="tab-content" id="required-content" style="display: block;">
+                            <div class="requirement-cards">
+                                <div class="requirement-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <h4>ISO 9001:2015 Awareness</h4>
+                                    </div>
+                                    <div class="completion-info">
+                                        <div class="progress-circle" data-progress="98">
+                                            <svg class="progress-ring" width="120" height="120">
+                                                <circle class="progress-ring__circle-bg" stroke-width="10" fill="transparent" r="50" cx="60" cy="60"/>
+                                                <circle class="progress-ring__circle" stroke-width="10" fill="transparent" r="50" cx="60" cy="60"/>
+                                            </svg>
+                                            <div class="progress-text">98%</div>
+                                        </div>
+                                        <p>1,847 Employees Trained</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <span class="due-date">Next Review: Dec 2024</span>
+                                        <button class="view-details-btn">View Details</button>
+                                    </div>
+                                </div>
+
+                                <div class="requirement-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-cogs"></i>
+                                        <h4>Process Control</h4>
+                                    </div>
+                                    <div class="completion-info">
+                                        <div class="progress-circle" data-progress="85">
+                                             <svg class="progress-ring" width="120" height="120">
+                                                <circle class="progress-ring__circle-bg" stroke-width="10" fill="transparent" r="50" cx="60" cy="60"/>
+                                                <circle class="progress-ring__circle" stroke-width="10" fill="transparent" r="50" cx="60" cy="60"/>
+                                            </svg>
+                                            <div class="progress-text">85%</div>
+                                        </div>
+                                        <p>456 Employees Trained</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <span class="due-date">Next Review: Nov 2024</span>
+                                        <button class="view-details-btn">View Details</button>
+                                    </div>
+                                </div>
+
+                                <div class="requirement-card">
+                                    <div class="card-header">
+                                        <i class="fas fa-search"></i>
+                                        <h4>Internal Auditor</h4>
+                                    </div>
+                                    <div class="completion-info">
+                                        <div class="progress-circle" data-progress="100">
+                                             <svg class="progress-ring" width="120" height="120">
+                                                <circle class="progress-ring__circle-bg" stroke-width="10" fill="transparent" r="50" cx="60" cy="60"/>
+                                                <circle class="progress-ring__circle" stroke-width="10" fill="transparent" r="50" cx="60" cy="60"/>
+                                            </svg>
+                                            <div class="progress-text">100%</div>
+                                        </div>
+                                        <p>24 Auditors Certified</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <span class="due-date">Next Review: Oct 2024</span>
+                                        <button class="view-details-btn">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="ongoing-content">
+                            <div class="ongoing-programs">
+                                <div class="program-grid">
+                                    <div class="program-item">
+                                        <div class="program-header">
+                                            <i class="fas fa-laptop-code"></i>
+                                            <h4>Digital Documentation</h4>
+                                        </div>
+                                        <p>Advanced QMS software training</p>
+                                        <div class="program-progress">
+                                            <div class="progress-bar">
+                                                <div class="progress" style="width: 65%"></div>
+                                            </div>
+                                            <span>65% Complete</span>
+                                        </div>
+                                        <div class="program-meta">
+                                            <span>89 Participants</span>
+                                            <span>4.5/5 Rating</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="program-item">
+                                        <div class="program-header">
+                                            <i class="fas fa-chart-line"></i>
+                                            <h4>Risk Management</h4>
+                                        </div>
+                                        <p>Advanced risk assessment techniques</p>
+                                        <div class="program-progress">
+                                            <div class="progress-bar">
+                                                <div class="progress" style="width: 45%"></div>
+                                            </div>
+                                            <span>45% Complete</span>
+                                        </div>
+                                        <div class="program-meta">
+                                            <span>34 Participants</span>
+                                            <span>4.8/5 Rating</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="program-item">
+                                        <div class="program-header">
+                                            <i class="fas fa-users-cog"></i>
+                                            <h4>Leadership Skills</h4>
+                                        </div>
+                                        <p>Quality management leadership</p>
+                                        <div class="program-progress">
+                                            <div class="progress-bar">
+                                                <div class="progress" style="width: 80%"></div>
+                                            </div>
+                                            <span>80% Complete</span>
+                                        </div>
+                                        <div class="program-meta">
+                                            <span>45 Participants</span>
+                                            <span>4.7/5 Rating</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="certifications-content">
+                            <div class="certification-tracker">
+                                <div class="certification-filters">
+                                    <select class="cert-type-filter">
+                                        <option value="all">All Certifications</option>
+                                        <option value="iso">ISO Related</option>
+                                        <option value="quality">Quality Management</option>
+                                        <option value="technical">Technical</option>
+                                    </select>
+                                    <button class="add-cert-btn">
+                                        <i class="fas fa-plus"></i>
+                                        Add Certification
+                                    </button>
+                                </div>
+
+                                <div class="certification-table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Certification</th>
+                                                <th>Provider</th>
+                                                <th>Certified Staff</th>
+                                                <th>Expiry</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>ISO 9001:2015 Lead Auditor</td>
+                                                <td>BSI</td>
+                                                <td>12</td>
+                                                <td>Dec 2024</td>
+                                                <td><span class="status-pill current">Current</span></td>
+                                                <td>
+                                                    <button class="view-btn"><i class="fas fa-eye"></i></button>
+                                                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Quality Management Professional</td>
+                                                <td>ASQ</td>
+                                                <td>8</td>
+                                                <td>Nov 2024</td>
+                                                <td><span class="status-pill current">Current</span></td>
+                                                <td>
+                                                    <button class="view-btn"><i class="fas fa-eye"></i></button>
+                                                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Internal QMS Auditor</td>
+                                                <td>Internal</td>
+                                                <td>24</td>
+                                                <td>Oct 2024</td>
+                                                <td><span class="status-pill renewal">Renewal Due</span></td>
+                                                <td>
+                                                    <button class="view-btn"><i class="fas fa-eye"></i></button>
+                                                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="training-analytics">
+                    <h3>Training Analytics</h3>
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <canvas id="trainingCompletionChart"></canvas>
+                            <h4>Completion Rates by Department</h4>
+                        </div>
+                        <div class="analytics-card">
+                            <canvas id="trainingTypeChart"></canvas>
+                            <h4>Training Hours by Type</h4>
+                        </div>
+                        <div class="analytics-card">
+                            <canvas id="certificationStatusChart"></canvas>
+                            <h4>Certification Status</h4>
+                        </div>
+                        <div class="analytics-card">
+                            <canvas id="trainingTrendChart"></canvas>
+                            <h4>Training Completion Trend</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="training-calendar">
+                    <h3>Upcoming Training Schedule</h3>
+                    <div class="calendar-controls">
+                        <button class="prev-month"><i class="fas fa-chevron-left"></i></button>
+                        <h4 id="current-month">April 2024</h4>
+                        <button class="next-month"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="calendar-grid" id="training-calendar-grid">
+                        <!-- Calendar will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Internal Audits Section -->
+            <section id="audits" class="content-section">
+                <div class="section-header">
+                    <h2>Internal Audits</h2>
+                    <div class="header-actions">
+                        <button id="scheduleAuditBtn" class="add-audit-btn main-action-btn">
+                            <i class="fas fa-plus"></i>
+                            <span>Schedule New Audit</span>
+                        </button>
+                        <button class="export-btn">
+                            <i class="fas fa-download"></i>
+                            Export Audit Data
+                        </button>
+                    </div>
+                </div>
+
+                <div class="audit-summary-grid">
+                    <div class="summary-card">
+                        <div class="summary-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <div class="summary-content">
+                            <p class="summary-value" id="audits-scheduled-value">12</p>
+                            <h4 class="summary-title">Audits Scheduled (2024)</h4>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon"><i class="fas fa-tasks"></i></div>
+                        <div class="summary-content">
+                            <p class="summary-value" id="audits-completion-value">75%</p>
+                            <h4 class="summary-title">Completion Rate</h4>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div class="summary-content">
+                            <p class="summary-value" id="audits-findings-value">8 <span class="sub-value">(2 Major)</span></p>
+                            <h4 class="summary-title">Open Findings</h4>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon"><i class="fas fa-history"></i></div>
+                        <div class="summary-content">
+                            <p class="summary-value" id="audits-closure-value">28 Days</p>
+                            <h4 class="summary-title">Avg. Closure Time</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audit-schedule">
+                    <h3>Audit Schedule 2024</h3>
+                    <div class="schedule-timeline">
+                        <div class="timeline-item complete" data-audit-id="IA-2024-001">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>Q1 - Process Audits</h4>
+                                <p>Manufacturing & QC</p>
+                                <span class="status">Completed</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item current" data-audit-id="IA-2024-002">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>Q2 - System Audit</h4>
+                                <p>Doc Control & Training</p>
+                                <span class="status">In Progress</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-audit-id="IA-2024-004">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>Q3 - Department Audits</h4>
+                                <p>Support Functions</p>
+                                <span class="status">Scheduled</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item" data-audit-id="IA-2024-005">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h4>Q4 - Full System</h4>
+                                <p>Pre-assessment</p>
+                                <span class="status">Planned</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audit-data-section">
+                    <h3>Audit Data Management</h3>
+                    <div class="audit-controls">
+                        <div class="control-group">
+                            <select id="auditTypeFilter" class="audit-type-filter">
+                                <option value="all">All Audit Types</option>
+                                <option value="Process">Process</option>
+                                <option value="System">System</option>
+                                <option value="Product">Product</option>
+                                <option value="Department">Department</option>
+                            </select>
+                            <select id="auditStatusFilter" class="audit-status-filter">
+                                <option value="all">All Statuses</option>
+                                <option value="Completed">Completed</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Scheduled">Scheduled</option>
+                                <option value="Planned">Planned</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="audit-table-container">
+                        <table class="audit-table">
+                            <thead>
+                                <tr>
+                                    <th>Audit ID</th>
+                                    <th>Type</th>
+                                    <th>Area/Process</th>
+                                    <th>Planned Date</th>
+                                    <th>Lead Auditor</th>
+                                    <th>Status</th>
+                                    <th>Findings</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="auditTableBody">
+                                <tr data-audit-id="IA-2024-001" data-status="Completed" data-type="Process">
+                                    <td>IA-2024-001</td>
+                                    <td>Process</td>
+                                    <td>Manufacturing</td>
+                                    <td>2024-03-15</td>
+                                    <td>John Smith</td>
+                                    <td><span class="status-pill complete">Completed</span></td>
+                                    <td>2 Minor</td>
+                                    <td>
+                                        <button class="view-btn" title="View Details"><i class="fas fa-eye"></i></button>
+                                        <button class="edit-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                    </td>
+                                </tr>
+                                <tr data-audit-id="IA-2024-002" data-status="In Progress" data-type="System">
+                                    <td>IA-2024-002</td>
+                                    <td>System</td>
+                                    <td>Document Control</td>
+                                    <td>2024-04-10</td>
+                                    <td>Sarah Johnson</td>
+                                    <td><span class="status-pill in-progress">In Progress</span></td>
+                                    <td>1 Major, 1 Minor</td>
+                                    <td>
+                                        <button class="view-btn" title="View Details"><i class="fas fa-eye"></i></button>
+                                        <button class="edit-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                    </td>
+                                </tr>
+                                <tr data-audit-id="IA-2024-003" data-status="Scheduled" data-type="Product">
+                                    <td>IA-2024-003</td>
+                                    <td>Product</td>
+                                    <td>Valve Assembly XYZ-1</td>
+                                    <td>2024-05-20</td>
+                                    <td>Mike Chen</td>
+                                    <td><span class="status-pill scheduled">Scheduled</span></td>
+                                    <td>Pending</td>
+                                    <td>
+                                        <button class="view-btn" title="View Details"><i class="fas fa-eye"></i></button>
+                                        <button class="edit-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                    </td>
+                                </tr>
+                                <tr data-audit-id="IA-2024-004" data-status="Scheduled" data-type="Department">
+                                    <td>IA-2024-004</td>
+                                    <td>Department</td>
+                                    <td>Human Resources</td>
+                                    <td>2024-07-18</td>
+                                    <td>Emily White</td>
+                                    <td><span class="status-pill scheduled">Scheduled</span></td>
+                                    <td>Pending</td>
+                                    <td>
+                                        <button class="view-btn" title="View Details"><i class="fas fa-eye"></i></button>
+                                        <button class="edit-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                    </td>
+                                </tr>
+                                 <tr data-audit-id="IA-2024-005" data-status="Planned" data-type="System">
+                                    <td>IA-2024-005</td>
+                                    <td>System</td>
+                                    <td>Full QMS Pre-assessment</td>
+                                    <td>2024-10-01</td>
+                                    <td>John Smith</td>
+                                    <td><span class="status-pill planned">Planned</span></td>
+                                    <td>Pending</td>
+                                    <td>
+                                        <button class="view-btn" title="View Details"><i class="fas fa-eye"></i></button>
+                                        <button class="edit-btn" title="Edit"><i class="fas fa-edit"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="audit-analytics">
+                    <h3>Audit Analytics</h3>
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <h4>Findings Distribution</h4>
+                            <div class="chart-container">
+                                <canvas id="findingsChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <h4>Compliance Trend</h4>
+                            <div class="chart-container">
+                                <canvas id="complianceChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                             <h4>Findings by Area</h4>
+                            <div class="chart-container">
+                                <canvas id="areaChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <h4>Finding Closure Rate</h4>
+                            <div class="chart-container">
+                                <canvas id="closureChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audit-findings-actions">
+                    <div class="findings-actions-header">
+                        <h3>Findings & Actions</h3>
+                        <div class="tabs" id="audit-findings-tabs">
+                            <button class="tab-btn active" data-tab="findings">Open Findings</button>
+                            <button class="tab-btn" data-tab="actions">Improvement Actions</button>
+                        </div>
+                    </div>
+                    <div class="tab-content active" id="findings-content">
+                         <div class="findings-grid">
+                            <div class="finding-card major">
+                                <div class="finding-header">
+                                    <span class="finding-type">Major NC</span>
+                                    <span class="finding-date">15 Mar 2024</span>
+                                </div>
+                                <h4>Document Control</h4>
+                                <p>Outdated procedures found in use on shop floor.</p>
+                                <div class="finding-footer">
+                                    <span class="status open">Open</span>
+                                    <span class="due-date">Due: 14 Apr 2024</span>
+                                    <button class="details-btn">Details</button>
+                                </div>
+                            </div>
+
+                            <div class="finding-card minor">
+                                <div class="finding-header">
+                                    <span class="finding-type">Minor NC</span>
+                                    <span class="finding-date">15 Mar 2024</span>
+                                </div>
+                                <h4>Training Records</h4>
+                                <p>Incomplete training documentation for new hires.</p>
+                                <div class="finding-footer">
+                                    <span class="status in-progress">In Progress</span>
+                                    <span class="due-date">Due: 14 May 2024</span>
+                                    <button class="details-btn">Details</button>
+                                </div>
+                            </div>
+
+                            <div class="finding-card observation">
+                                <div class="finding-header">
+                                    <span class="finding-type">Observation</span>
+                                    <span class="finding-date">15 Mar 2024</span>
+                                </div>
+                                <h4>Process Monitoring</h4>
+                                <p>Trending analysis for KPIs could be improved for proactive actions.</p>
+                                <div class="finding-footer">
+                                    <span class="status under-review">Under Review</span>
+                                    <span class="due-date">Due: 14 Jun 2024</span>
+                                    <button class="details-btn">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="actions-content">
+                        <div class="action-cards">
+                            <div class="action-card high-priority">
+                                <div class="action-header">
+                                    <span class="priority">High Priority</span>
+                                    <span class="due-date">Due: Apr 30, 2024</span>
+                                </div>
+                                <h4>Update Document Control System</h4>
+                                <p>Implement digital workflow for document approval and distribution.</p>
+                                <div class="action-progress">
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar" style="width: 60%"></div>
+                                    </div>
+                                    <span>60% Complete</span>
+                                </div>
+                                <div class="action-footer">
+                                    <span class="owner">Owner: Quality Manager</span>
+                                    <button class="update-btn">Update</button>
+                                </div>
+                            </div>
+                            <div class="action-card medium-priority">
+                                <div class="action-header">
+                                    <span class="priority">Medium Priority</span>
+                                    <span class="due-date">Due: May 15, 2024</span>
+                                </div>
+                                <h4>Training Program Enhancement</h4>
+                                <p>Develop competency assessment framework for internal auditors.</p>
+                                <div class="action-progress">
+                                     <div class="progress-bar-container">
+                                        <div class="progress-bar" style="width: 40%"></div>
+                                    </div>
+                                    <span>40% Complete</span>
+                                </div>
+                                <div class="action-footer">
+                                    <span class="owner">Owner: Training Coordinator</span>
+                                    <button class="update-btn">Update</button>
+                                </div>
+                            </div>
+                            <div class="action-card low-priority">
+                                <div class="action-header">
+                                    <span class="priority">Low Priority</span>
+                                    <span class="due-date">Due: Jun 30, 2024</span>
+                                </div>
+                                <h4>Process Monitoring Review</h4>
+                                <p>Enhance KPI monitoring and reporting system with predictive alerts.</p>
+                                <div class="action-progress">
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar" style="width: 25%"></div>
+                                    </div>
+                                    <span>25% Complete</span>
+                                </div>
+                                <div class="action-footer">
+                                    <span class="owner">Owner: Process Owner</span>
+                                    <button class="update-btn">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Management Review Section -->
+            <section id="management" class="content-section">
+                <div class="section-header">
+                    <h2>Management Review</h2>
+                    <div class="header-actions">
+                        <button class="add-review-btn main-action-btn">
+                            <i class="fas fa-plus"></i>
+                            <span>Schedule New Review</span>
+                        </button>
+                        <button class="export-btn">
+                            <i class="fas fa-download"></i>
+                            Export Review Data
+                        </button>
+                    </div>
+                </div>
+
+                <div class="review-dashboard">
+                    <div class="review-kpi-grid">
+                        <div class="review-kpi-card">
+                            <div class="kpi-icon"><i class="fas fa-calendar-check"></i></div>
+                            <div class="kpi-content">
+                                <h4>Latest Review</h4>
+                                <p class="kpi-value">Mar 15, 2024</p>
+                            </div>
+                        </div>
+                        <div class="review-kpi-card">
+                            <div class="kpi-icon"><i class="fas fa-tasks"></i></div>
+                            <div class="kpi-content">
+                                <h4>Actions Generated</h4>
+                                <p class="kpi-value">12</p>
+                            </div>
+                        </div>
+                        <div class="review-kpi-card">
+                            <div class="kpi-icon"><i class="fas fa-check-double"></i></div>
+                            <div class="kpi-content">
+                                <h4>Action Closure Rate</h4>
+                                <p class="kpi-value">85%</p>
+                            </div>
+                        </div>
+                        <div class="review-kpi-card">
+                            <div class="kpi-icon"><i class="fas fa-users"></i></div>
+                            <div class="kpi-content">
+                                <h4>Attendance</h4>
+                                <p class="kpi-value">100%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-timeline-container">
+                        <h3>Review Schedule</h3>
+                        <div class="review-timeline">
+                            <div class="timeline-event past">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">Q4 2023</div>
+                                <div class="timeline-desc">Annual Review</div>
+                            </div>
+                            <div class="timeline-event past">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">Q1 2024</div>
+                                <div class="timeline-desc">Quarterly Check-in</div>
+                            </div>
+                            <div class="timeline-event current">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">Q2 2024</div>
+                                <div class="timeline-desc">Mid-Year Review</div>
+                            </div>
+                            <div class="timeline-event upcoming">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">Q3 2024</div>
+                                <div class="timeline-desc">Quarterly Check-in</div>
+                            </div>
+                            <div class="timeline-event upcoming">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-date">Q4 2024</div>
+                                <div class="timeline-desc">Annual Review</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-details">
+                    <div class="review-tabs">
+                        <button class="review-tab-btn active" data-tab="inputs">Inputs & Agenda</button>
+                        <button class="review-tab-btn" data-tab="performance">Performance Data</button>
+                        <button class="review-tab-btn" data-tab="actions">Action Items</button>
+                        <button class="review-tab-btn" data-tab="outputs">Outputs & Decisions</button>
+                    </div>
+
+                    <div id="inputs-content" class="review-tab-content active">
+                        <div class="content-grid">
+                            <div class="agenda-container">
+                                <div class="agenda-header">
+                                    <h4>Review Agenda (Mar 15, 2024)</h4>
+                                    <button class="add-agenda-item-btn">
+                                        <i class="fas fa-plus"></i>
+                                        Add Item
+                                    </button>
+                                </div>
+                                <ul class="agenda-list">
+                                    <li class="complete" data-agenda-id="1">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Review of previous management review actions</span>
+                                        <div class="item-actions">
+                                            <button class="edit-agenda-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-agenda-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </li>
+                                    <li class="complete" data-agenda-id="2">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Changes in external and internal issues</span>
+                                        <div class="item-actions">
+                                            <button class="edit-agenda-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-agenda-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </li>
+                                    <li class="complete" data-agenda-id="3">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Information on the performance and effectiveness of the QMS</span>
+                                        <div class="item-actions">
+                                            <button class="edit-agenda-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-agenda-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </li>
+                                    <li class="in-progress" data-agenda-id="4">
+                                        <i class="fas fa-circle-notch fa-spin"></i>
+                                        <span>Adequacy of resources</span>
+                                        <div class="item-actions">
+                                            <button class="edit-agenda-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-agenda-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </li>
+                                    <li class="pending" data-agenda-id="5">
+                                        <i class="far fa-circle"></i>
+                                        <span>Effectiveness of actions taken to address risks and opportunities</span>
+                                        <div class="item-actions">
+                                            <button class="edit-agenda-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-agenda-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </li>
+                                    <li class="pending" data-agenda-id="6">
+                                        <i class="far fa-circle"></i>
+                                        <span>Opportunities for improvement</span>
+                                        <div class="item-actions">
+                                            <button class="edit-agenda-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-agenda-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </li>
+                                    <li class="pending" data-agenda-id="7">
+                                        <i class="far fa-circle"></i>
+                                        <span>Customer satisfaction and feedback analysis</span>
+                                        <div class="item-actions">
+                                            <button class="edit-agenda-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-agenda-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </li>
+                                    <li class="pending" data-agenda-id="8">
+                                        <i class="far fa-circle"></i>
+                                        <span>Supplier performance evaluation</span>
+                                        <div class="item-actions">
+                                            <button class="edit-agenda-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-agenda-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="inputs-container">
+                                <div class="inputs-header">
+                                    <h4>Key Inputs Reviewed</h4>
+                                    <button class="add-input-btn">
+                                        <i class="fas fa-plus"></i>
+                                        Add Input
+                                    </button>
+                                </div>
+                                <div class="input-cards">
+                                    <div class="input-card" data-input-id="1">
+                                        <i class="fas fa-search"></i> 
+                                        <span>Internal Audit Results</span>
+                                        <div class="card-actions">
+                                            <button class="edit-input-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-input-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="input-card" data-input-id="2">
+                                        <i class="fas fa-users"></i> 
+                                        <span>Customer Feedback</span>
+                                        <div class="card-actions">
+                                            <button class="edit-input-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-input-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="input-card" data-input-id="3">
+                                        <i class="fas fa-chart-bar"></i> 
+                                        <span>Process Performance</span>
+                                        <div class="card-actions">
+                                            <button class="edit-input-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-input-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="input-card" data-input-id="4">
+                                        <i class="fas fa-box"></i> 
+                                        <span>Product Conformity</span>
+                                        <div class="card-actions">
+                                            <button class="edit-input-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-input-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="input-card" data-input-id="5">
+                                        <i class="fas fa-exclamation-triangle"></i> 
+                                        <span>Nonconformities & Actions</span>
+                                        <div class="card-actions">
+                                            <button class="edit-input-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-input-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="input-card" data-input-id="6">
+                                        <i class="fas fa-truck"></i> 
+                                        <span>Supplier Performance</span>
+                                        <div class="card-actions">
+                                            <button class="edit-input-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-input-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="input-card" data-input-id="7">
+                                        <i class="fas fa-shield-alt"></i> 
+                                        <span>Risk Assessment Updates</span>
+                                        <div class="card-actions">
+                                            <button class="edit-input-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-input-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="input-card" data-input-id="8">
+                                        <i class="fas fa-graduation-cap"></i> 
+                                        <span>Training Effectiveness</span>
+                                        <div class="card-actions">
+                                            <button class="edit-input-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-input-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="performance-content" class="review-tab-content">
+                        <div class="performance-data-section">
+                            <div class="performance-controls">
+                                <h4>Performance Metrics Dashboard</h4>
+                                <button class="add-metric-btn">
+                                    <i class="fas fa-plus"></i>
+                                    Add Metric
+                                </button>
+                            </div>
+                            <div class="performance-metrics-grid">
+                                <div class="performance-metric-card" data-metric-id="1">
+                                    <div class="metric-header">
+                                        <h5>Customer Satisfaction</h5>
+                                        <div class="metric-actions">
+                                            <button class="edit-metric-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-metric-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="metric-value">93.8%</div>
+                                    <div class="metric-change positive">+1.3% vs Q1</div>
+                                    <div class="metric-target">Target: 95%</div>
+                                </div>
+                                <div class="performance-metric-card" data-metric-id="2">
+                                    <div class="metric-header">
+                                        <h5>On-Time Delivery</h5>
+                                        <div class="metric-actions">
+                                            <button class="edit-metric-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-metric-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="metric-value">96.2%</div>
+                                    <div class="metric-change positive">+2.1% vs Q1</div>
+                                    <div class="metric-target">Target: 95%</div>
+                                </div>
+                                <div class="performance-metric-card" data-metric-id="3">
+                                    <div class="metric-header">
+                                        <h5>Quality Rate</h5>
+                                        <div class="metric-actions">
+                                            <button class="edit-metric-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-metric-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="metric-value">98.7%</div>
+                                    <div class="metric-change positive">+0.5% vs Q1</div>
+                                    <div class="metric-target">Target: 98%</div>
+                                </div>
+                                <div class="performance-metric-card" data-metric-id="4">
+                                    <div class="metric-header">
+                                        <h5>Cost Efficiency</h5>
+                                        <div class="metric-actions">
+                                            <button class="edit-metric-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-metric-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="metric-value">92.1%</div>
+                                    <div class="metric-change negative">-1.8% vs Q1</div>
+                                    <div class="metric-target">Target: 94%</div>
+                                </div>
+                                <div class="performance-metric-card" data-metric-id="5">
+                                    <div class="metric-header">
+                                        <h5>Employee Satisfaction</h5>
+                                        <div class="metric-actions">
+                                            <button class="edit-metric-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-metric-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="metric-value">87.5%</div>
+                                    <div class="metric-change positive">+3.2% vs Q1</div>
+                                    <div class="metric-target">Target: 85%</div>
+                                </div>
+                                <div class="performance-metric-card" data-metric-id="6">
+                                    <div class="metric-header">
+                                        <h5>Process Efficiency</h5>
+                                        <div class="metric-actions">
+                                            <button class="edit-metric-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-metric-btn"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="metric-value">94.5%</div>
+                                    <div class="metric-change positive">+2.3% vs Q1</div>
+                                    <div class="metric-target">Target: 93%</div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="review-charts">
+                            <div class="chart-container">
+                                <h3>Customer Satisfaction Trend</h3>
+                                <canvas id="customerSatisfactionChart"></canvas>
+                            </div>
+                            <div class="chart-container">
+                                <h3>Process Performance vs Targets</h3>
+                                <canvas id="processPerformanceReviewChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="actions-content" class="review-tab-content">
+                        <div class="actions-table-container">
+                            <div class="actions-table-controls">
+                                <select id="actionStatusFilter">
+                                    <option value="all">All Statuses</option>
+                                    <option value="in-progress">In Progress</option>
+                                    <option value="completed">Completed</option>
+                                    <option value="pending">Pending</option>
+                                </select>
+                                <button class="add-action-btn"> <i class="fas fa-plus"></i> Add Action Item</button>
+                            </div>
+                            <table class="action-table-enhanced">
+                                <thead>
+                                    <tr>
+                                        <th>Action Item</th>
+                                        <th>Owner</th>
+                                        <th>Due Date</th>
+                                        <th>Priority</th>
+                                        <th>Progress</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Update Quality Policy to reflect new strategic goals.</td>
+                                        <td>Quality Director</td>
+                                        <td>30 Apr 2024</td>
+                                        <td><span class="priority-pill high">High</span></td>
+                                        <td>
+                                            <div class="progress-bar-container"><div class="progress-bar" style="width: 80%;"></div></div>
+                                            <span>80%</span>
+                                        </td>
+                                        <td><span class="status-pill in-progress">In Progress</span></td>
+                                        <td>
+                                            <button class="edit-action-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-action-btn"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Review and allocate resources for new production line.</td>
+                                        <td>Operations Manager</td>
+                                        <td>15 May 2024</td>
+                                         <td><span class="priority-pill high">High</span></td>
+                                         <td>
+                                            <div class="progress-bar-container"><div class="progress-bar" style="width: 25%;"></div></div>
+                                            <span>25%</span>
+                                        </td>
+                                        <td><span class="status-pill pending">Pending</span></td>
+                                        <td>
+                                            <button class="edit-action-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-action-btn"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Implement enhanced training program for new software.</td>
+                                        <td>HR Manager</td>
+                                        <td>31 May 2024</td>
+                                         <td><span class="priority-pill medium">Medium</span></td>
+                                         <td>
+                                            <div class="progress-bar-container"><div class="progress-bar" style="width: 50%;"></div></div>
+                                            <span>50%</span>
+                                        </td>
+                                        <td><span class="status-pill in-progress">In Progress</span></td>
+                                        <td>
+                                            <button class="edit-action-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-action-btn"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td>Follow up on customer feedback regarding delivery times.</td>
+                                        <td>Sales Director</td>
+                                        <td>25 Apr 2024</td>
+                                         <td><span class="priority-pill medium">Medium</span></td>
+                                        <td>
+                                            <div class="progress-bar-container"><div class="progress-bar" style="width: 100%;"></div></div>
+                                            <span>100%</span>
+                                        </td>
+                                        <td><span class="status-pill complete">Completed</span></td>
+                                        <td>
+                                            <button class="edit-action-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-action-btn"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                     <tr>
+                                        <td>Conduct risk assessment for updated supplier list.</td>
+                                        <td>Purchasing Manager</td>
+                                        <td>10 Jun 2024</td>
+                                        <td><span class="priority-pill low">Low</span></td>
+                                       <td>
+                                            <div class="progress-bar-container"><div class="progress-bar" style="width: 0%;"></div></div>
+                                            <span>0%</span>
+                                        </td>
+                                        <td><span class="status-pill pending">Pending</span></td>
+                                        <td>
+                                            <button class="edit-action-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-action-btn"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Evaluate and implement new KPI tracking system.</td>
+                                        <td>Quality Manager</td>
+                                        <td>20 Jun 2024</td>
+                                        <td><span class="priority-pill medium">Medium</span></td>
+                                       <td>
+                                            <div class="progress-bar-container"><div class="progress-bar" style="width: 15%;"></div></div>
+                                            <span>15%</span>
+                                        </td>
+                                        <td><span class="status-pill in-progress">In Progress</span></td>
+                                        <td>
+                                            <button class="edit-action-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-action-btn"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Review and update emergency response procedures.</td>
+                                        <td>Safety Manager</td>
+                                        <td>05 Jul 2024</td>
+                                        <td><span class="priority-pill high">High</span></td>
+                                       <td>
+                                            <div class="progress-bar-container"><div class="progress-bar" style="width: 35%;"></div></div>
+                                            <span>35%</span>
+                                        </td>
+                                        <td><span class="status-pill in-progress">In Progress</span></td>
+                                        <td>
+                                            <button class="edit-action-btn"><i class="fas fa-edit"></i></button>
+                                            <button class="delete-action-btn"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="outputs-content" class="review-tab-content">
+                        <div class="outputs-header">
+                            <h4>Key Outputs & Decisions</h4>
+                            <button class="add-output-btn">
+                                <i class="fas fa-plus"></i>
+                                Add Output
+                            </button>
+                        </div>
+                         <div class="output-cards">
+                            <div class="output-card" data-output-id="1">
+                                <div class="output-icon"><i class="fas fa-bullseye"></i></div>
+                                <div class="output-content">
+                                    <h5>Updated Quality Objectives</h5>
+                                    <p>Increase customer satisfaction score to 95% by Q4 2024. Reduce manufacturing defects by 15%.</p>
+                                </div>
+                                <div class="output-actions">
+                                    <button class="edit-output-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="delete-output-btn"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                             <div class="output-card" data-output-id="2">
+                                <div class="output-icon"><i class="fas fa-cogs"></i></div>
+                                <div class="output-content">
+                                    <h5>Process Improvement Directives</h5>
+                                    <p>Launch a project to automate the document control process. Investigate new technology for production line monitoring.</p>
+                                </div>
+                                <div class="output-actions">
+                                    <button class="edit-output-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="delete-output-btn"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                             <div class="output-card" data-output-id="3">
+                                <div class="output-icon"><i class="fas fa-cubes"></i></div>
+                                <div class="output-content">
+                                    <h5>Resource Allocation</h5>
+                                    <p>Approved budget for 2 new QC inspectors. Allocated funds for new calibration equipment.</p>
+                                </div>
+                                <div class="output-actions">
+                                    <button class="edit-output-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="delete-output-btn"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                            <div class="output-card" data-output-id="4">
+                                <div class="output-icon"><i class="fas fa-file-alt"></i></div>
+                                <div class="output-content">
+                                    <h5>Documentation Updates</h5>
+                                    <p>Quality Policy and key procedures to be updated by Quality Director by end of Q2 2024.</p>
+                                </div>
+                                <div class="output-actions">
+                                    <button class="edit-output-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="delete-output-btn"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                            <div class="output-card" data-output-id="5">
+                                <div class="output-icon"><i class="fas fa-handshake"></i></div>
+                                <div class="output-content">
+                                    <h5>Supplier Partnership Program</h5>
+                                    <p>Establish strategic partnerships with top 3 suppliers to improve quality and reduce lead times by 20%.</p>
+                                </div>
+                                <div class="output-actions">
+                                    <button class="edit-output-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="delete-output-btn"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                            <div class="output-card" data-output-id="6">
+                                <div class="output-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <div class="output-content">
+                                    <h5>Skills Development Initiative</h5>
+                                    <p>Launch comprehensive leadership development program for managers. Increase technical training budget by 25%.</p>
+                                </div>
+                                <div class="output-actions">
+                                    <button class="edit-output-btn"><i class="fas fa-edit"></i></button>
+                                    <button class="delete-output-btn"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Improvements Section -->
+            <section id="improvements" class="content-section">
+                <div class="section-header">
+                    <h2>Continuous Improvements</h2>
+                    <div class="header-actions">
+                        <button class="add-improvement-btn main-action-btn">
+                            <i class="fas fa-plus"></i>
+                            <span>Submit Improvement Idea</span>
+                        </button>
+                         <button class="export-btn">
+                            <i class="fas fa-download"></i>
+                            Export Improvement Data
+                        </button>
+                    </div>
+                </div>
+
+                <div class="improvement-metrics">
+                    <div class="summary-card">
+                        <div class="summary-icon"><i class="fas fa-lightbulb"></i></div>
+                        <div class="summary-content">
+                            <p class="summary-value">15</p>
+                            <h4 class="summary-title">Active Projects</h4>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="summary-content">
+                             <p class="summary-value">23</p>
+                            <h4 class="summary-title">Completed (12m)</h4>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon"><i class="fas fa-dollar-sign"></i></div>
+                        <div class="summary-content">
+                            <p class="summary-value">$1.2M</p>
+                            <h4 class="summary-title">Est. Annual Savings</h4>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="summary-content">
+                            <p class="summary-value">92%</p>
+                            <h4 class="summary-title">Success Rate</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="improvement-tracking">
+                    <div class="tracking-header">
+                        <h3>Improvement Pipeline</h3>
+                        <div class="tabs">
+                            <button class="tab-btn active" data-tab="active">Active Projects</button>
+                            <button class="tab-btn" data-tab="suggestions">Suggestion Box</button>
+                            <button class="tab-btn" data-tab="completed">Completed Log</button>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content active" id="active-content">
+                        <div class="project-cards-grid">
+                            <div class="project-card-enhanced high-priority">
+                                <div class="card-header">
+                                    <span class="priority-label">High</span>
+                                    <h4>Digital Documentation System</h4>
+                                    <span class="status-label in-progress">In Progress</span>
+                                </div>
+                                <p class="description">Implementation of paperless quality management system to improve efficiency and control.</p>
+                                <div class="progress-section">
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar" style="width: 75%;"></div>
+                                    </div>
+                                    <span class="progress-text">75%</span>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="owner">
+                                        <i class="fas fa-user-tie"></i>
+                                        <span>John Smith</span>
+                                    </div>
+                                    <div class="due-date">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>Due: Jun 2024</span>
+                                    </div>
+                                    <div class="impact">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <span>$450k</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-card-enhanced medium-priority">
+                                <div class="card-header">
+                                    <span class="priority-label">Medium</span>
+                                    <h4>Training Management System</h4>
+                                    <span class="status-label in-progress">In Progress</span>
+                                </div>
+                                <p class="description">Automated tracking and scheduling of employee training and competency.</p>
+                                <div class="progress-section">
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar" style="width: 60%;"></div>
+                                    </div>
+                                    <span class="progress-text">60%</span>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="owner">
+                                        <i class="fas fa-user-tie"></i>
+                                        <span>Sarah Johnson</span>
+                                    </div>
+                                    <div class="due-date">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>Due: Aug 2024</span>
+                                    </div>
+                                     <div class="impact">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <span>$120k</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-card-enhanced low-priority">
+                                <div class="card-header">
+                                    <span class="priority-label">Low</span>
+                                    <h4>Supplier Quality Program</h4>
+                                    <span class="status-label starting">Starting</span>
+                                </div>
+                                <p class="description">Enhanced supplier evaluation and monitoring system for better material quality.</p>
+                                <div class="progress-section">
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar" style="width: 15%;"></div>
+                                    </div>
+                                    <span class="progress-text">15%</span>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="owner">
+                                        <i class="fas fa-user-tie"></i>
+                                        <span>Mike Chen</span>
+                                    </div>
+                                    <div class="due-date">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>Due: Oct 2024</span>
+                                    </div>
+                                    <div class="impact">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <span>$250k</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="suggestions-content">
+                        <div class="suggestion-box">
+                            <div class="suggestion-list">
+                                <div class="suggestion-card">
+                                    <div class="suggestion-header">
+                                        <p class="suggestion-title">Automate Production Line 3 Reporting</p>
+                                        <span class="suggestion-status review">Under Review</span>
+                                    </div>
+                                    <p class="suggestion-desc">Currently, reporting is manual and takes 2 hours daily. Automation could save time and reduce errors.</p>
+                                    <div class="suggestion-footer">
+                                        <span>Submitted by: Jane Doe</span>
+                                        <span>Date: 2024-04-10</span>
+                                    </div>
+                                </div>
+                                <div class="suggestion-card">
+                                    <div class="suggestion-header">
+                                        <p class="suggestion-title">Improve Ergonomics at Workstation B</p>
+                                        <span class="suggestion-status new">New</span>
+                                    </div>
+                                    <p class="suggestion-desc">Several employees have reported discomfort. New chairs or adjustable desks could improve well-being and productivity.</p>
+                                    <div class="suggestion-footer">
+                                        <span>Submitted by: Mark Lee</span>
+                                        <span>Date: 2024-04-18</span>
+                                    </div>
+                                </div>
+                                <div class="suggestion-card">
+                                    <div class="suggestion-header">
+                                        <p class="suggestion-title">Standardize Forklift Inspection Checklist</p>
+                                        <span class="suggestion-status approved">Approved</span>
+                                    </div>
+                                    <p class="suggestion-desc">Different shifts use slightly different checklists. A single, standardized digital form would improve consistency.</p>
+                                    <div class="suggestion-footer">
+                                        <span>Submitted by: Safety Committee</span>
+                                        <span>Date: 2024-03-25</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="completed-content">
+                        <div class="completed-table-container">
+                            <table class="sortable-table">
+                                <thead>
+                                    <tr>
+                                        <th data-sort-by="name">Project Name <i class="fas fa-sort"></i></th>
+                                        <th data-sort-by="category">Category <i class="fas fa-sort"></i></th>
+                                        <th data-sort-by="date">Completion Date <i class="fas fa-sort"></i></th>
+                                        <th data-sort-by="savings">Cost Savings ($) <i class="fas fa-sort"></i></th>
+                                        <th data-sort-by="impact">Impact <i class="fas fa-sort"></i></th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Process Automation - Phase 1</td>
+                                        <td>Process Optimization</td>
+                                        <td data-value="20240315">Mar 15, 2024</td>
+                                        <td data-value="350000">350,000</td>
+                                        <td>High</td>
+                                        <td><span class="status-pill complete">Complete</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Quality Metrics Dashboard</td>
+                                        <td>System Integration</td>
+                                        <td data-value="20240228">Feb 28, 2024</td>
+                                        <td data-value="85000">85,000</td>
+                                        <td>Medium</td>
+                                        <td><span class="status-pill complete">Complete</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>ISO Training Program Update</td>
+                                        <td>Training & Development</td>
+                                        <td data-value="20240131">Jan 31, 2024</td>
+                                        <td data-value="45000">45,000</td>
+                                        <td>High</td>
+                                        <td><span class="status-pill complete">Complete</span></td>
+                                    </tr>
+                                     <tr>
+                                        <td>Warehouse Layout Optimization</td>
+                                        <td>Logistics</td>
+                                        <td data-value="20231220">Dec 20, 2023</td>
+                                        <td data-value="150000">150,000</td>
+                                        <td>Medium</td>
+                                        <td><span class="status-pill complete">Complete</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="improvement-analytics">
+                    <h3>Improvement Analytics</h3>
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <h4>Improvement Source Analysis</h4>
+                            <div class="chart-container">
+                                <canvas id="improvementSourceChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <h4>Impact Analysis (Completed Projects)</h4>
+                             <div class="chart-container">
+                                <canvas id="improvementImpactChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <h4>Project Completion Trend</h4>
+                             <div class="chart-container">
+                                <canvas id="projectCompletionTrendChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Additional sections will be added in subsequent files -->
+        </main>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "chart.js": "https://cdn.jsdelivr.net/npm/chart.js@4.4.0/+esm",
+            "chart.js/auto": "https://cdn.jsdelivr.net/npm/chart.js@4.4.0/auto/+esm"
+        }
+    }
+    </script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

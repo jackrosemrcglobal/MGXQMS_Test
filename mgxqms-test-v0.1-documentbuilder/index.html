@@ -1,0 +1,1087 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRC Global Document Builder</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "html2canvas": "https://esm.sh/html2canvas@1.4.1",
+            "jspdf": "https://esm.sh/jspdf@2.5.1",
+            "docx": "https://esm.sh/docx@8.5.0",
+            "xlsx": "https://esm.sh/xlsx@0.18.5",
+            "file-saver": "https://esm.sh/file-saver@2.0.5"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <div class="logo-container">
+                    <img src="mrc-logo.png" alt="MRC Global" class="company-logo">
+                </div>
+                <h1>Document Builder</h1>
+            </div>
+            <div class="header-right">
+                <div class="template-dropdown">
+                    <button class="btn btn-secondary" id="templateBtn">Templates</button>
+                    <div class="template-dropdown-content" id="templateDropdownContent">
+                        <div class="template-search">
+                            <input type="text" id="templateSearchHeader" placeholder="Search templates...">
+                        </div>
+                        <div class="template-categories">
+                            <select id="templateCategoryHeader" class="form-select">
+                                <option value="sop">Standard Operating Procedures</option>
+                                <option value="workInstructions">Work Instructions</option>
+                                <option value="policies">Policies</option>
+                                <option value="forms">Forms</option>
+                                <option value="iso9001">ISO 9001 Templates</option>
+                            </select>
+                        </div>
+                        <div class="template-list" id="templateListHeader">
+                            <!-- Template items will be populated here -->
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" id="exportAllTemplatesBtn">Export All Templates</button>
+                <button class="btn btn-secondary" id="documentSettingsBtn">Document Settings</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+                <button class="btn btn-secondary" id="saveBtn">Save</button>
+                <button class="btn btn-primary" id="publishBtn">Publish & Export</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Replace the Quick Edit section in the sidebar -->
+                <div class="sidebar-section expanded">
+                    <div class="sidebar-section-header">
+                        <h3>Document Attributes</h3>
+                        <span class="sidebar-section-toggle">▶</span>
+                    </div>
+                    <div class="sidebar-section-content">
+                        <div class="attributes-table-container">
+                            <div id="quickEditFieldsContainer">
+                                <!-- Quick edit fields will be dynamically added here -->
+                            </div>
+                        </div>
+                        <div class="attributes-actions">
+                            <button class="btn btn-secondary" id="resetAttributes">Reset</button>
+                            <button class="btn btn-primary" id="applyAttributes">Apply Changes</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-section-header">
+                        <h3>Document Settings</h3>
+                        <span class="sidebar-section-toggle">▶</span>
+                    </div>
+                    <div class="sidebar-section-content">
+                    
+                    <!-- Basic Information -->
+                    <h4>Basic Information</h4>
+                    <div class="form-group">
+                        <label for="docId">Document ID:</label>
+                        <input type="text" id="docId" placeholder="DOC-001">
+                    </div>
+                    <div class="form-group">
+                        <label for="docNumberLegacy">Legacy Document Number:</label>
+                        <input type="text" id="docNumberLegacy" placeholder="Old system reference">
+                    </div>
+                    <div class="form-group">
+                        <label for="docTitle">Document Title:</label>
+                        <input type="text" id="docTitle" placeholder="Quality Management Form">
+                    </div>
+                    <div class="form-group">
+                        <label for="docDescription">Description:</label>
+                        <textarea id="docDescription" placeholder="Brief description of the document"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="docType">Document Type:</label>
+                        <select id="docType" class="form-select">
+                            <option value="SOP">Standard Operating Procedure</option>
+                            <option value="WI">Work Instruction</option>
+                            <option value="Policy">Policy</option>
+                            <option value="Form">Form</option>
+                            <option value="Manual">Manual</option>
+                            <option value="Procedure">Procedure</option>
+                            <option value="Specification">Specification</option>
+                            <option value="Record">Record</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contentType">Content Type:</label>
+                        <select id="contentType" class="form-select">
+                            <option value="Document">Document</option>
+                            <option value="Template">Template</option>
+                            <option value="Record">Record</option>
+                            <option value="Reference">Reference</option>
+                        </select>
+                    </div>
+
+                    <!-- People and Ownership -->
+                    <h4>People & Ownership</h4>
+                    <div class="form-group">
+                        <label for="docCreatedBy">Created By:</label>
+                        <input type="text" id="docCreatedBy" placeholder="Creator name">
+                    </div>
+                    <div class="form-group">
+                        <label for="docAuthor">Author:</label>
+                        <input type="text" id="docAuthor" placeholder="e.g., Quality Department">
+                    </div>
+                    <div class="form-group">
+                        <label for="docApprover">Approver:</label>
+                        <input type="text" id="docApprover" placeholder="Approval authority">
+                    </div>
+                    <div class="form-group">
+                        <label for="docModifiedBy">Modified By:</label>
+                        <input type="text" id="docModifiedBy" placeholder="Last modifier">
+                    </div>
+                    <div class="form-group">
+                        <label for="docOwner">Owner:</label>
+                        <input type="text" id="docOwner" placeholder="Document owner">
+                    </div>
+
+                    <!-- Organization -->
+                    <h4>Organization</h4>
+                    <div class="form-group">
+                        <label for="docDepartment">Department:</label>
+                        <input type="text" id="docDepartment" placeholder="e.g., Operations">
+                    </div>
+                    <div class="form-group">
+                        <label for="docRegion">Region:</label>
+                        <select id="docRegion" class="form-select">
+                            <option value="">Select Region</option>
+                            <option value="EMEA">EMEA</option>
+                            <option value="AMERICAS">Americas</option>
+                            <option value="APAC">Asia Pacific</option>
+                            <option value="Global">Global</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="docSystem">System:</label>
+                        <input type="text" id="docSystem" placeholder="Related system">
+                    </div>
+                    <div class="form-group">
+                        <label for="docCustomer">Customer:</label>
+                        <input type="text" id="docCustomer" placeholder="Customer/client">
+                    </div>
+                    <div class="form-group">
+                        <label for="docWorkStream">Work Stream:</label>
+                        <input type="text" id="docWorkStream" placeholder="Project/work stream">
+                    </div>
+
+                    <!-- Status and Approval -->
+                    <h4>Status & Approval</h4>
+                    <div class="form-group">
+                        <label for="docStatus">Status:</label>
+                        <select id="docStatus" class="form-select">
+                            <option value="draft" selected>Draft</option>
+                            <option value="review">Under Review</option>
+                            <option value="approved">Approved</option>
+                            <option value="archived">Archived</option>
+                            <option value="obsolete">Obsolete</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="docApprovalStatus">Approval Status:</label>
+                        <select id="docApprovalStatus" class="form-select">
+                            <option value="pending">Pending</option>
+                            <option value="approved">Approved</option>
+                            <option value="rejected">Rejected</option>
+                            <option value="withdrawn">Withdrawn</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="docApprovalProcess">Approval Process:</label>
+                        <input type="text" id="docApprovalProcess" placeholder="Approval workflow">
+                    </div>
+
+                    <!-- Classification and Compliance -->
+                    <h4>Classification & Compliance</h4>
+                    <div class="form-group">
+                        <label for="docClassification">Classification:</label>
+                        <select id="docClassification" class="form-select">
+                            <option value="public">Public</option>
+                            <option value="internal" selected>Internal Use</option>
+                            <option value="confidential">Confidential</option>
+                            <option value="restricted">Restricted</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="docSensitivity">Sensitivity:</label>
+                        <select id="docSensitivity" class="form-select">
+                            <option value="public">Public</option>
+                            <option value="internal" selected>Internal</option>
+                            <option value="confidential">Confidential</option>
+                            <option value="highly-confidential">Highly Confidential</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="docTopic">Topic:</label>
+                        <input type="text" id="docTopic" placeholder="Subject matter">
+                    </div>
+                    <div class="form-group">
+                        <label for="docISOScope">ISO Scope:</label>
+                        <input type="text" id="docISOScope" placeholder="ISO standard scope">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="docISOCritical"> ISO Critical Document
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="docProcessScope">Process Scope:</label>
+                        <input type="text" id="docProcessScope" placeholder="Process coverage">
+                    </div>
+                    <div class="form-group">
+                        <label for="docComplianceAssetId">Compliance Asset ID:</label>
+                        <input type="text" id="docComplianceAssetId" placeholder="Compliance tracking ID">
+                    </div>
+
+                    <!-- Language and Localization -->
+                    <h4>Language & Localization</h4>
+                    <div class="form-group">
+                        <label for="docLanguage">Document Language:</label>
+                        <select id="docLanguage" class="form-select">
+                            <option value="en">English</option>
+                            <option value="es">Spanish</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                            <option value="zh">Chinese</option>
+                            <option value="ja">Japanese</option>
+                            <option value="pt">Portuguese</option>
+                            <option value="it">Italian</option>
+                            <option value="ru">Russian</option>
+                            <option value="ar">Arabic</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="docDateFormat">Date Format:</label>
+                        <select id="docDateFormat" class="form-select">
+                            <option value="YYYY-MM-DD">YYYY-MM-DD (e.g., 2023-10-27)</option>
+                            <option value="MM/DD/YYYY">MM/DD/YYYY (e.g., 10/27/2023)</option>
+                            <option value="DD-MM-YYYY">DD-MM-YYYY (e.g., 27-10-2023)</option>
+                            <option value="DD/MM/YYYY">DD/MM/YYYY (e.g., 27/10/2023)</option>
+                            <option value="D MMMM YYYY">D MMMM YYYY (e.g., 27 October 2023)</option>
+                            <option value="MMMM D, YYYY">MMMM D, YYYY (e.g., October 27, 2023)</option>
+                            <option value="DD.MM.YYYY">DD.MM.YYYY (e.g., 27.10.2023)</option>
+                            <option value="YYYY年MM月DD日">YYYY年MM月DD日 (Chinese format)</option>
+                            <option value="DD-MMM-YYYY">DD-MMM-YYYY (e.g., 27-Oct-2023)</option>
+                        </select>
+                    </div>
+
+                    <!-- Dates -->
+                    <h4>Dates</h4>
+                    <div class="form-group">
+                        <label for="createdDate">Created Date:</label>
+                        <input type="date" id="createdDate" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="modifiedDate">Modified Date:</label>
+                        <input type="date" id="modifiedDate" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="effectiveDate">Effective Date:</label>
+                        <input type="date" id="effectiveDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="revision">Revision:</label>
+                        <input type="text" id="revision" placeholder="A" value="A">
+                    </div>
+                    <div class="form-group">
+                        <label for="revisionDate">Revised Date:</label>
+                        <input type="date" id="revisionDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="expiryDate">Expiry Date:</label>
+                        <input type="date" id="expiryDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="nextReviewDate">Next Review Date:</label>
+                        <input type="date" id="nextReviewDate">
+                    </div>
+
+                    <!-- Retention and Labels -->
+                    <h4>Retention & Labels</h4>
+                    <div class="form-group">
+                        <label for="retentionLabel">Retention Label:</label>
+                        <select id="retentionLabel" class="form-select">
+                            <option value="">Select Retention</option>
+                            <option value="1-year">1 Year</option>
+                            <option value="3-years">3 Years</option>
+                            <option value="7-years">7 Years</option>
+                            <option value="permanent">Permanent</option>
+                            <option value="regulatory">Regulatory</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="retentionLabelApplied"> Retention Label Applied
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="labelSetting">Label Setting:</label>
+                        <input type="text" id="labelSetting" placeholder="Label configuration">
+                    </div>
+
+                    <!-- File Properties -->
+                    <h4>File Properties</h4>
+                    <div class="form-group">
+                        <label for="itemType">Item Type:</label>
+                        <select id="itemType" class="form-select">
+                            <option value="Document">Document</option>
+                            <option value="Folder">Folder</option>
+                            <option value="Template">Template</option>
+                            <option value="Link">Link</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="docPath">Path:</label>
+                        <input type="text" id="docPath" placeholder="Document location path">
+                    </div>
+                    <div class="form-group">
+                        <label for="docURL">URL:</label>
+                        <input type="url" id="docURL" placeholder="Document URL">
+                    </div>
+                    <div class="form-group">
+                        <label for="fileSize">File Size (KB):</label>
+                        <input type="number" id="fileSize" placeholder="0" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemChildCount">Item Child Count:</label>
+                        <input type="number" id="itemChildCount" placeholder="0" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="folderChildCount">Folder Child Count:</label>
+                        <input type="number" id="folderChildCount" placeholder="0" readonly>
+                    </div>
+
+                    <!-- Engagement -->
+                    <h4>Engagement</h4>
+                    <div class="form-group">
+                        <label for="likeCount">Like Count:</label>
+                        <input type="number" id="likeCount" placeholder="0" readonly>
+                    </div>
+
+                    <!-- Comments -->
+                    <h4>Comments</h4>
+                    <div class="form-group">
+                        <label for="docComments">Comments:</label>
+                        <textarea id="docComments" placeholder="Additional comments or notes"></textarea>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-section-header">
+                        <h3>Tags & Categories</h3>
+                        <span class="sidebar-section-toggle">▶</span>
+                    </div>
+                    <div class="sidebar-section-content">
+                    <div class="form-group">
+                        <label for="docTags">Add Tags (comma-separated):</label>
+                        <input type="text" id="docTags" placeholder="e.g., Safety, Process Control">
+                    </div>
+                    <div class="tags-container" id="tagsContainer">
+                        <!-- Tags will be dynamically added here -->
+                    </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-section-header">
+                        <h3>Templates</h3>
+                        <span class="sidebar-section-toggle">▶</span>
+                    </div>
+                    <div class="sidebar-section-content">
+                    <div class="template-controls">
+                        <div class="form-group">
+                            <label for="templateCategory">Category:</label>
+                            <select id="templateCategory" class="form-select">
+                                <option value="sop">Standard Operating Procedures</option>
+                                <option value="workInstructions">Work Instructions</option>
+                                <option value="policies">Policies</option>
+                                <option value="forms">Forms</option>
+                                <option value="iso9001">ISO 9001 Templates</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="templateSearch" placeholder="Search templates..." class="form-control">
+                        </div>
+                        <div class="template-list" id="templateList">
+                            <!-- Template items populated dynamically -->
+                        </div>
+                    </div>
+                    
+                    <div class="legacy-templates">
+                        <h4>Quick Templates</h4>
+                        <div class="template-buttons">
+                            <button class="template-btn" data-template="heading1">Heading 1</button>
+                            <button class="template-btn" data-template="heading2">Heading 2</button>
+                            <button class="template-btn" data-template="heading3">Heading 3</button>
+                            <button class="template-btn" data-template="paragraph">Paragraph</button>
+                            <button class="template-btn" data-template="checklist">Checklist</button>
+                            <button class="template-btn" data-template="table">Table</button>
+                            <button class="template-btn" data-template="section">Section Break</button>
+                            <button class="template-btn" data-template="quote">Quote Block</button>
+                            <button class="template-btn" data-template="numberedList">Numbered List</button>
+                            <button class="template-btn" data-template="bulletList">Bullet List</button>
+                            <button class="template-btn" data-template="codeBlock">Code Block</button>
+                            <button class="template-btn" data-template="signature">Signature</button>
+                            <button class="template-btn" data-template="warning">Warning Box</button>
+                            <button class="template-btn" data-template="note">Note Box</button>
+                            <button class="template-btn" data-template="procedure">Procedure</button>
+                            <button class="template-btn" data-template="twoColumn">Two Column</button>
+                            <button class="template-btn" data-template="definition">Definition List</button>
+                            <button class="template-btn" data-template="contact">Contact Info</button>
+                            <button class="template-btn" data-template="revision">Revision Entry</button>
+                            <button class="template-btn" data-template="approval">Approval Block</button>
+                            <button class="template-btn" id="addNewPageBtn">Add New Page</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-section-header">
+                        <h3>Insert</h3>
+                        <span class="sidebar-section-toggle">▶</span>
+                    </div>
+                    <div class="sidebar-section-content">
+                    <div class="insert-buttons">
+                        <button class="insert-btn" id="insertTable">Table</button>
+                        <button class="insert-btn" id="insertImage">Image</button>
+                        <button class="insert-btn" id="insertPageBreak">Page Break</button>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <div class="sidebar-section-header">
+                        <h3>Activity Log & Revisions</h3>
+                        <span class="sidebar-section-toggle">▶</span>
+                    </div>
+                    <div class="sidebar-section-content">
+                    <div class="revision-controls">
+                        <h4>Activity Log</h4>
+                        <div class="audit-trail-list" id="auditTrailList">
+                            <!-- Audit trail entries will be added here -->
+                        </div>
+                        <h4>Revisions</h4>
+                        <button class="btn-small" id="addRevision">Add Revision</button>
+                        <button class="btn-small" id="viewRevisions" style="display:none;">View Revisions</button>
+                        <div class="revision-list" id="revisionList">
+                            <!-- Revision entries will be added here -->
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Document Editor -->
+            <main class="document-area">
+                <!-- Find and Replace Bar -->
+                <div class="find-replace-bar" id="findReplaceBar">
+                    <label>Find:</label>
+                    <input type="text" id="findInput" class="find-replace-input" placeholder="Enter text to find">
+                    <button id="findPrevBtn" class="find-replace-btn">Previous</button>
+                    <button id="findNextBtn" class="find-replace-btn">Next</button>
+                    <label>Replace:</label>
+                    <input type="text" id="replaceInput" class="find-replace-input" placeholder="Enter replacement text">
+                    <button id="replaceBtn" class="find-replace-btn">Replace</button>
+                    <button id="replaceAllBtn" class="find-replace-btn">Replace All</button>
+                    <button id="closeFindBtn" class="find-replace-close">&times;</button>
+                </div>
+
+                <!-- Document Pages -->
+                <div class="document-container" id="documentContainer">
+                    <div class="document-page" id="page1">
+                        <!-- Page Header -->
+                        <div class="page-header">
+                            <div class="header-content">
+                                <div class="logo-section">
+                                    <img src="mrc-logo.png" alt="MRC Global" class="page-logo">
+                                </div>
+                                <div class="document-info">
+                                    <div class="doc-id" id="headerDocId">DOC-001</div>
+                                    <div class="doc-title" id="headerDocTitle">Quality Management Form</div>
+                                    <div class="doc-status-container">
+                                        <span class="doc-status-badge" id="headerDocStatus" data-status="draft">Draft</span>
+                                    </div>
+                                    <div class="doc-meta" id="headerDocMeta"></div>
+                                </div>
+                            </div>
+                            <div class="revision-block">
+                                <table class="revision-header-table">
+                                    <tr id="revisionRow">
+                                        <td>Rev:</td>
+                                        <td id="headerRevision">A</td>
+                                    </tr>
+                                    <tr id="effectiveDateRow">
+                                        <td>Effective:</td>
+                                        <td id="headerEffectiveDate"></td>
+                                    </tr>
+                                    <tr id="revisedDateRow">
+                                        <td>Revised:</td>
+                                        <td id="headerRevisedDate"></td>
+                                    </tr>
+                                    <tr id="authorRow">
+                                        <td>Author:</td>
+                                        <td id="headerAuthor"></td>
+                                    </tr>
+                                    <tr id="departmentRow">
+                                        <td>Dept:</td>
+                                        <td id="headerDepartment"></td>
+                                    </tr>
+                                    <tr id="regionRow">
+                                        <td>Region:</td>
+                                        <td id="headerRegion"></td>
+                                    </tr>
+                                    <tr id="docTypeRow">
+                                        <td>Type:</td>
+                                        <td id="headerDocType"></td>
+                                    </tr>
+                                    <tr id="docIdBottomRow">
+                                        <td>Doc ID:</td>
+                                        <td id="headerDocIdBottom"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Document Content -->
+                        <div class="page-content" contenteditable="true" id="documentContent">
+                            <h1>Document Title</h1>
+                            <p>Start typing your document content here...</p>
+                        </div>
+
+                        <!-- Page Footer -->
+                        <div class="page-footer">
+                            <div class="footer-content">
+                                MRC Global Quality Management System
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Revision Table (appears at end of document) -->
+                    <div class="revision-table-container" id="revisionTableContainer">
+                        <!-- Document Metadata Section -->
+                        <div class="document-metadata-section">
+                            <h3>Document Metadata</h3>
+                            
+                            <h4>Basic Information</h4>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Document ID:</span>
+                                <span class="metadata-value" id="metaDocId">DOC-001</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Document Title:</span>
+                                <span class="metadata-value" id="metaDocTitle">Quality Management Form</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Description:</span>
+                                <span class="metadata-value" id="metaDocDescription">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Document Type:</span>
+                                <span class="metadata-value" id="metaDocType">SOP</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Content Type:</span>
+                                <span class="metadata-value" id="metaContentType">Document</span>
+                            </div>
+
+                            <!-- People and Ownership -->
+                            <h4>People & Ownership</h4>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Created By:</span>
+                                <span class="metadata-value" id="metaCreatedBy">Quality Department</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Author:</span>
+                                <span class="metadata-value" id="metaAuthor">Quality Department</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Approver:</span>
+                                <span class="metadata-value" id="metaApprover">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Modified By:</span>
+                                <span class="metadata-value" id="metaModifiedBy">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Owner:</span>
+                                <span class="metadata-value" id="metaOwner">-</span>
+                            </div>
+
+                            <!-- Organization -->
+                            <h4>Organization</h4>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Department:</span>
+                                <span class="metadata-value" id="metaDepartment">Operations</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Region:</span>
+                                <span class="metadata-value" id="metaRegion">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">System:</span>
+                                <span class="metadata-value" id="metaSystem">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Customer:</span>
+                                <span class="metadata-value" id="metaCustomer">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Work Stream:</span>
+                                <span class="metadata-value" id="metaWorkStream">-</span>
+                            </div>
+
+                            <!-- Status and Approval -->
+                            <h4>Status & Approval</h4>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Status:</span>
+                                <span class="metadata-value status-badge" id="metaStatus" data-status="draft">Draft</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Approval Status:</span>
+                                <span class="metadata-value" id="metaApprovalStatus">Pending</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Approval Process:</span>
+                                <span class="metadata-value" id="metaApprovalProcess">-</span>
+                            </div>
+
+                            <!-- Classification and Compliance -->
+                            <h4>Classification & Compliance</h4>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Classification:</span>
+                                <span class="metadata-value" id="metaClassification">Internal Use</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Sensitivity:</span>
+                                <span class="metadata-value" id="metaSensitivity">Internal</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Topic:</span>
+                                <span class="metadata-value" id="metaTopic">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">ISO Scope:</span>
+                                <span class="metadata-value" id="metaISOScope">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">ISO Critical:</span>
+                                <span class="metadata-value" id="metaISOCritical">No</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Process Scope:</span>
+                                <span class="metadata-value" id="metaProcessScope">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Compliance Asset ID:</span>
+                                <span class="metadata-value" id="metaComplianceAssetId">-</span>
+                            </div>
+
+                            <!-- Language and Localization -->
+                            <h4>Language & Localization</h4>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Language:</span>
+                                <span class="metadata-value" id="metaLanguage">English</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Date Format:</span>
+                                <span class="metadata-value" id="metaDateFormat">YYYY-MM-DD</span>
+                            </div>
+
+                            <!-- Dates -->
+                            <h4>Dates</h4>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Created Date:</span>
+                                <span class="metadata-value" id="metaCreatedDate">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Modified Date:</span>
+                                <span class="metadata-value" id="metaModifiedDate">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Effective Date:</span>
+                                <span class="metadata-value" id="metaEffectiveDate">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Revised Date:</span>
+                                <span class="metadata-value" id="metaRevisedDate">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Expiry Date:</span>
+                                <span class="metadata-value" id="metaExpiryDate">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Next Review Date:</span>
+                                <span class="metadata-value" id="metaNextReviewDate">-</span>
+                            </div>
+
+                            <!-- Retention and Labels -->
+                            <h4>Retention & Labels</h4>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Retention Label:</span>
+                                <span class="metadata-value" id="metaRetentionLabel">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Retention Label Applied:</span>
+                                <span class="metadata-value" id="metaRetentionLabelApplied">No</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Label Setting:</span>
+                                <span class="metadata-value" id="metaLabelSetting">-</span>
+                            </div>
+
+                            <!-- File Properties -->
+                            <h4>File Properties</h4>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Item Type:</span>
+                                <span class="metadata-value" id="metaItemType">Document</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Path:</span>
+                                <span class="metadata-value" id="metaPath">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">URL:</span>
+                                <span class="metadata-value" id="metaURL">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">File Size (KB):</span>
+                                <span class="metadata-value" id="metaFileSize">0</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Item Child Count:</span>
+                                <span class="metadata-value" id="metaItemChildCount">0</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Folder Child Count:</span>
+                                <span class="metadata-value" id="metaFolderChildCount">0</span>
+                            </div>
+
+                            <!-- Engagement -->
+                            <h4>Engagement</h4>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Like Count:</span>
+                                <span class="metadata-value" id="metaLikeCount">0</span>
+                            </div>
+
+                            <!-- Tags and Comments -->
+                            <h4>Tags & Comments</h4>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Tags:</span>
+                                <span class="metadata-value" id="metaTags">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="metadata-label">Comments:</span>
+                                <span class="metadata-value" id="metaComments">-</span>
+                            </div>
+                        </div>
+
+                        <h3>Document Revision History</h3>
+                        <table class="revision-table" id="revisionTable">
+                            <thead>
+                                <tr>
+                                    <th>Rev</th>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Author</th>
+                                    <th>Approved By</th>
+                                </tr>
+                            </thead>
+                            <tbody id="revisionTableBody">
+                                <tr>
+                                    <td>A</td>
+                                    <td id="initialDate"></td>
+                                    <td>Initial Release</td>
+                                    <td>Quality Team</td>
+                                    <td>QM</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Context Menu -->
+    <div class="context-menu" id="contextMenu">
+        <div class="context-menu-group">
+            <button class="context-menu-btn" id="ctxBoldBtn" title="Bold"><b>B</b></button>
+            <button class="context-menu-btn" id="ctxItalicBtn" title="Italic"><i>I</i></button>
+            <button class="context-menu-btn" id="ctxUnderlineBtn" title="Underline"><u>U</u></button>
+            <button class="context-menu-btn" id="ctxStrikeBtn" title="Strikethrough"><s>S</s></button>
+        </div>
+        <div class="context-menu-group">
+            <button class="context-menu-btn" id="ctxSuperscriptBtn" title="Superscript">x²</button>
+            <button class="context-menu-btn" id="ctxSubscriptBtn" title="Subscript">x₂</button>
+        </div>
+        <div class="context-menu-group">
+            <div class="color-picker-container">
+                <button class="context-menu-btn" id="ctxTextColorBtn" title="Text Color">A</button>
+                <input type="color" id="ctxTextColorPicker" class="color-picker" value="#000000">
+            </div>
+            <div class="color-picker-container">
+                <button class="context-menu-btn" id="ctxHighlightBtn" title="Highlight">🖍</button>
+                <input type="color" id="ctxHighlightColorPicker" class="color-picker" value="#ffff00">
+            </div>
+            <button class="context-menu-btn" id="ctxClearFormatBtn" title="Clear Formatting">⌫</button>
+        </div>
+        <div class="context-menu-group">
+            <select id="ctxFontSize" class="context-menu-select">
+                <option value="12">12pt</option>
+                <option value="14" selected>14pt</option>
+                <option value="16">16pt</option>
+                <option value="18">18pt</option>
+                <option value="24">24pt</option>
+            </select>
+            <select id="ctxFontFamily" class="context-menu-select">
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times</option>
+                <option value="Calibri" selected>Calibri</option>
+                <option value="Georgia">Georgia</option>
+            </select>
+        </div>
+        <div class="context-menu-group">
+            <button class="context-menu-btn" id="ctxAlignLeft" title="Align Left">⬅</button>
+            <button class="context-menu-btn" id="ctxAlignCenter" title="Align Center">⬌</button>
+            <button class="context-menu-btn" id="ctxAlignRight" title="Align Right">➡</button>
+        </div>
+        <div class="context-menu-group">
+            <button class="context-menu-btn" id="ctxBulletList" title="Bullet List">• List</button>
+            <button class="context-menu-btn" id="ctxNumberList" title="Numbered List">1. List</button>
+        </div>
+        <div class="context-menu-group">
+            <button class="context-menu-btn" id="ctxOutdentBtn" title="Decrease Indent">⬅</button>
+            <button class="context-menu-btn" id="ctxIndentBtn" title="Increase Indent">➡</button>
+        </div>
+        <div class="context-menu-group">
+            <button class="context-menu-btn" id="ctxInsertRowBtn" title="Insert Table Row">+Row</button>
+            <button class="context-menu-btn" id="ctxInsertColBtn" title="Insert Table Column">+Col</button>
+            <button class="context-menu-btn" id="ctxDeleteRowBtn" title="Delete Table Row">-Row</button>
+            <button class="context-menu-btn" id="ctxDeleteColBtn" title="Delete Table Column">-Col</button>
+        </div>
+        <div class="context-menu-group">
+            <button class="context-menu-btn" id="ctxLinkBtn" title="Create Link">🔗</button>
+            <button class="context-menu-btn" id="ctxFindReplaceBtn" title="Find & Replace">🔍</button>
+            <button class="context-menu-btn" id="ctxPrintPreviewBtn" title="Print Preview">🖨</button>
+        </div>
+    </div>
+
+    <!-- Word Count Display -->
+    <div class="word-count-display" id="wordCountDisplay">
+        <div class="word-count-item">Words: <span id="wordCount">0</span></div>
+        <div class="word-count-item">Characters: <span id="charCount">0</span></div>
+        <div class="word-count-item">Characters (no spaces): <span id="charCountNoSpaces">0</span></div>
+    </div>
+
+    <!-- Hidden file input for image uploads -->
+    <input type="file" id="imageInput" accept="image/*" style="display: none;">
+
+    <!-- Table Creation Modal -->
+    <div class="modal" id="tableModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Insert Table</h3>
+                <button class="close-btn" id="closeTableModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="tableRows">Rows:</label>
+                    <input type="number" id="tableRows" value="3" min="1" max="20">
+                </div>
+                <div class="form-group">
+                    <label for="tableCols">Columns:</label>
+                    <input type="number" id="tableCols" value="3" min="1" max="10">
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="tableHeaders"> Include headers
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelTable">Cancel</button>
+                <button class="btn btn-primary" id="createTable">Create Table</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Revision Modal -->
+    <div class="modal" id="revisionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Revision</h3>
+                <button class="close-btn" id="closeRevisionModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="newRevision">Revision:</label>
+                    <input type="text" id="newRevision" placeholder="B">
+                </div>
+                <div class="form-group">
+                    <label for="newRevisionDate">Date:</label>
+                    <input type="date" id="newRevisionDate">
+                </div>
+                <div class="form-group">
+                    <label for="revisionDescription">Description:</label>
+                    <textarea id="revisionDescription" placeholder="Describe the changes..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="revisionAuthor">Author:</label>
+                    <input type="text" id="revisionAuthor" placeholder="Author name">
+                </div>
+                <div class="form-group">
+                    <label for="revisionApprover">Approved By:</label>
+                    <input type="text" id="revisionApprover" placeholder="Approver name">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelRevision">Cancel</button>
+                <button class="btn btn-primary" id="addRevisionConfirm">Add Revision</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hyperlink Modal -->
+    <div class="modal" id="linkModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="linkModalTitle">Create Hyperlink</h3>
+                <button class="close-btn" id="closeLinkModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="linkUrl">URL:</label>
+                    <input type="url" id="linkUrl" placeholder="https://example.com" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="linkText">Text to display:</label>
+                    <input type="text" id="linkText" placeholder="Link text" class="form-control">
+                </div>
+                <p class="modal-help-text">To link to another document, use its ID as the URL (e.g., #SOP-123).</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-danger" id="removeLink">Remove Link</button>
+                <button class="btn btn-secondary" id="cancelLink">Cancel</button>
+                <button class="btn btn-primary" id="createLink">Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Export Progress Modal -->
+    <div class="modal" id="exportModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Exporting Documents</h3>
+            </div>
+            <div class="modal-body">
+                <div class="export-progress">
+                    <div class="progress-item">
+                        <span>DOCX</span>
+                        <div class="progress-status" id="docxStatus">⏳</div>
+                    </div>
+                    <div class="progress-item">
+                        <span>PDF (with revision table)</span>
+                        <div class="progress-status" id="pdfStatus">⏳</div>
+                    </div>
+                    <div class="progress-item">
+                        <span>PDF (without revision table)</span>
+                        <div class="progress-status" id="pdfCleanStatus">⏳</div>
+                    </div>
+                    <div class="progress-item">
+                        <span>TXT</span>
+                        <div class="progress-status" id="txtStatus">⏳</div>
+                    </div>
+                    <div class="progress-item">
+                        <span>XLSX</span>
+                        <div class="progress-status" id="xlsxStatus">⏳</div>
+                    </div>
+                    <div class="progress-item">
+                        <span>CSV (metadata)</span>
+                        <div class="progress-status" id="csvStatus">⏳</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="closeExportModal" style="display: none;">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Edit Configuration Modal -->
+    <div class="modal" id="quickEditConfigModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Configure Quick Edit Fields</h3>
+                <button class="close-btn" id="closeQuickEditConfigModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="quick-edit-table-container" id="quickEditTableContainer">
+                    <table class="quick-edit-config-table" id="quickEditConfigTable">
+                        <thead>
+                            <tr>
+                                <th>Enabled</th>
+                                <th>Field</th>
+                                <th>Show in Header</th>
+                                <th>Order</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="quickEditConfigBody">
+                            <!-- Configuration rows will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelQuickEditConfig">Cancel</button>
+                <button class="btn btn-primary" id="applyQuickEditConfig">Apply Configuration</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Document Settings Modal -->
+    <div class="modal" id="documentSettingsModal">
+        <div class="modal-content" style="max-width: 900px; width: 95%;">
+            <div class="modal-header">
+                <h3>Document Settings</h3>
+                <button class="close-btn" id="closeDocumentSettingsModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="document-settings-table-container" style="max-height: 500px; overflow-y: auto;">
+                    <table class="document-settings-table" style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: var(--lighter-gray); position: sticky; top: 0;">
+                                <th style="padding: 0.75rem; border: 1px solid var(--border-color); width: 30%;">Setting</th>
+                                <th style="padding: 0.75rem; border: 1px solid var(--border-color); width: 70%;">Value</th>
+                            </tr>
+                        </thead>
+                        <tbody id="documentSettingsTableBody">
+                            <!-- Settings rows will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelDocumentSettings">Cancel</button>
+                <button class="btn btn-primary" id="applyDocumentSettings">Apply Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js" type="module"></script>
+</body>
+</html>
